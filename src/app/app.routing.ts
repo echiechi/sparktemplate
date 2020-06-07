@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {SpearfishComponent} from './spearfish/spearfish.component';
 
-const routes: Routes = [
+const routes: Routes =[
   {
     path: '',
     redirectTo: 'dashboard',
@@ -21,6 +21,11 @@ const routes: Routes = [
   },
   {path: 'fishmap',
     component: SpearfishComponent},
+  { path: 'artisanat',
+    loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)
+  },
+  /*{ path: 'admin', component: AdminLayoutComponent },
+  { path: '**', redirectTo: 'admin' }*/
 ];
 
 @NgModule({
@@ -28,7 +33,7 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
-       useHash: true
+      preloadingStrategy: PreloadAllModules
     })
   ],
   exports: [
