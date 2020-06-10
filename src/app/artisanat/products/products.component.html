@@ -1,5 +1,35 @@
-<div class="main-content">
-    <div class="container-fluid">
-        hello world
+<div class="main-content" style="padding-left: 20px;padding-right: 20px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Search For Products</h4>
+                </div>
+                <div class="card-body">
+                    Product
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card" *ngFor="let i of [1,2,3,4,5]" style="margin-bottom:-25px">
+                <div class="card-body card-size row">
+                    <div class="col-md-2">
+                        <img alt="product" style="width :100%; height : 100%">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h4>Product</h4>
+                            </div>
+                            <div class="col-md-1" style="margin-top: 8vh;">
+                                <button mat-icon-button color="primary">
+                                    <i class="material-icons">add_shopping_cart</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -13,10 +13,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NewShopComponent } from './new-shop/new-shop.component';
 import { MyShopComponent } from './my-shop/my-shop.component';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatListModule } from '@angular/material/list';
+import { WorkersComponent } from './my-shop/workers/workers.component';
+import { SmallCardComponent } from './my-shop/small-card/small-card.component';
+import { MyProductsComponent } from './my-shop/my-products/my-products.component';
+import { MyGridComponent } from './my-shop/my-grid/my-grid.component';
 
 @NgModule({
-  declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent],
+  declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent, WorkersComponent, SmallCardComponent, MyProductsComponent, MyGridComponent],
   imports: [
     CommonModule,
     ArtisanatRoutingModule,
@@ -26,7 +30,8 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule
   ]
 })
 export class ArtisanatModule { }
