@@ -1,0 +1,33 @@
+<div class="card" *ngFor="let i of [1,2,3,4,5]" style="margin-bottom:-25px">
+    <div class="card-body card-size row">
+        <div class="col-md-4">
+            <img alt="product" src="../../../assets//img/fanouss.jpg" style="width :100%; height : 100%">
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <h4 class="card-title-b">Product Name</h4>
+            </div>
+            <div class="row full-height" align="center">
+                <div class="col-md-6 small-line">
+                    <h5><a routerLink="/artisanat/frontshop/1">My Shop Name</a></h5>
+                    <h2>251 DT</h2>
+                    <button mat-stroked-button color="primary">
+                        <i class="material-icons" style="margin-right: 15px;">
+                            add_shopping_cart</i>Add To Cart
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <i class="material-icons" style="color:red">
+                        favorite</i>
+                    <i class="material-icons" style="color:red" *ngFor="let i of [1,2,3,4]">
+                        favorite_border</i>
+                    <i>likes 15</i>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
