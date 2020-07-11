@@ -1,0 +1,98 @@
+
+<div class="card mb-3" *ngFor="let i of [1,2,3,4,5]" style="max-width: 1200px;">
+        <div class="row no-gutters">
+        <div class="col-md-4">  
+        <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon" [routerLink]="['/hosting/profile']">
+              
+              <i class="material-icons">face</i>
+           
+            </div>
+  
+  
+            <div class="carousel slide" id="slider" data-ride="carousel">
+              <!--indicators-->
+              <ol class="carousel-indicators">
+                <li data-target="#slider" data-slide-to="0" class="active"></li>
+                <li data-target="#slider" data-slide-to="1"></li>
+                <li data-target="#slider" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/img/test1.jfif" style="width :100%; height : 100%">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+            
+                <div class="carousel-item" id="slide2">
+                  <img src="assets/img/test3.jfif" style="width :100%; height : 100%">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="carousel-item" id="slide3">
+                  <img src="assets/img/reem.jpg" style="width :100%; height : 100%">
+                  <div class="carousel-caption">
+                    <p>Travel! Enjoy!</p>
+                  </div>
+                </div>
+            
+              </div>
+              <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>     
+         </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            
+            <h5 class="card-title">Extra Couch At Tunis</h5>
+            <p class="card-text">Hi This is Alex, I  live in Tunis. I have an extra couch and I can welcome those who wants to discover Tunisia. 
+            I am a cool person, so if you are interested contact me directly or book you couch :)
+            </p>
+            <div class="container">
+  
+            <mat-form-field> 
+              <input matInput [min]="minDate" [max]="maxDate" [formControl]="startDate" [matDatepicker]="picker" placeholder="Choose a start date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="minDate"></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field> 
+              <input matInput [min]="startDate" [max]="maxDate" [formControl]="endDate" [matDatepicker]="picker" placeholder="Choose an end date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+             </div>   
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+            
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-default">Book your Couch</button>
+         
+  
+          </div>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+     <div align="right">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+    
+        <i>15 likes </i>
+     </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -12,6 +12,11 @@ const routes: Routes = [
   },
   /*{ path: 'admin', component: AdminLayoutComponent },
   { path: '**', redirectTo: 'admin' }*/
+
+  {
+    path: 'hosting',
+    loadChildren: () => import('./hosting/hosting.module').then(rm => rm.HostingModule)
+  },
 ];
 
 @NgModule({

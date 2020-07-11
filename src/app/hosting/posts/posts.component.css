@@ -1,0 +1,26 @@
+
+ .h4{
+   color:red;
+ } 
+  #slider .carousel-item {
+    height: 150px;
+  }
+  
+  .carousel-caption {
+    font-size: 18px;
+  }
+  
+  .carousel-item>img {
+    width: 100%
+  }
+
+  div.container {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle }
+
+    .md-unstyled-image img{
+      max-width: 100%;
+      width: auto;
+      height: auto !important; /* needs to be important because md-card also sets it that way */
+    } 
