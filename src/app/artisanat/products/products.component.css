@@ -1,0 +1,30 @@
+.card-size{
+    height: 35vh;
+}
+
+.card-title-b{
+    color : black;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.small-line{
+    border-right: 0.5px solid silver;
+}
+
+.full-height{
+    height: 80%;
+}
+
+.heartIcon{
+    color:red; font-size: 18px;
+}
+
+.heartIcon:hover{
+    cursor: pointer;
+    color : rgb(252, 71, 71)
+}
+
+mat-slider {
+    width: 300px;
+  }

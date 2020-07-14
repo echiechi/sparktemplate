@@ -1,24 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+import * as Chartist  from 'chartist';
+import { ChartingService } from '../services/charting.service';
 
 @Component({
   selector: 'app-my-shop',
@@ -26,11 +8,48 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./my-shop.component.css']
 })
 export class MyShopComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  cards = [{
+    icon: 'attach_money',
+    category: 'Revenue',
+    title: '$34,245',
+    secondaryIcon: 'date_range',
+    secondaryText: 'Last 24 Hours'
+  }, {
+    icon: 'store',
+    category: 'Products Sold',
+    title: '34',
+    secondaryIcon: 'date_range',
+    secondaryText: 'Last 24 Hours'
+  }, {
+    icon: 'person',
+    category: 'Customers',
+    title: '34',
+    secondaryIcon: 'date_range',
+    secondaryText: 'Last 24 Hours'
+  }];
+  constructor(private chartingService: ChartingService) { }
 
   ngOnInit(): void {
+
+    const dataDailySalesChart: any = {
+      labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+      series: [
+        [12, 17, 7, 17, 23, 18, 38]
+      ]
+    };
+
+    const optionsDailySalesChart: any = {
+      lineSmooth: Chartist.Interpolation.cardinal({
+        tension: 0
+      }),
+      low: 0,
+      high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      chartPadding: { top: 0, right: 0, bottom: 0, left: 0 },
+    }
+
+    var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+    this.chartingService.startAnimationForLineChart(dailySalesChart);
   }
 
 }

@@ -1,0 +1,46 @@
+<h2>My Cart</h2>
+<div style="height: 70vh;overflow: auto;">
+    <table class="table table-hover">
+        <thead class=" text-warning">
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of [1,2,3]">
+                <td>1</td>
+                <td>Dakota Rice</td>
+                <td>3.5</td>
+                <td>
+                    <mat-slider></mat-slider>1
+                </td>
+                <td>
+                    3.5
+                </td>
+                <td>
+                    <button mat-stroked-button color="warn" style="width: 90%;">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                </td>
+                <td style="color : #ff9800; font-size: 18px;">
+                    Toatal: 10.5 DT
+                </td>
+                <td >
+                    <button mat-stroked-button color="primary" style="width: 90%;">
+                        Buy
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

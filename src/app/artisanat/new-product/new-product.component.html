@@ -1,40 +1,42 @@
 <div class="card">
     <div class="card-header card-header-danger">
         <h4 class="card-title">Add new Product</h4>
-        <p class="card-category">Shop name here</p>
+        <p class="card-category">stock.product name here</p>
     </div>
     <div class="card-body">
         <form>
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Product Name">
+                        <input matInput placeholder="Product Name" [(ngModel)]="stock.product.name" name="name" #name="ngModel">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Unit Price" type="number">
+                        <input matInput placeholder="Unit Price" type="number" [(ngModel)]="stock.product.unitPrice" name="unitPrice" #unitPrice="ngModel">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Product Type" type="text">
+                        <input matInput placeholder="Quantity" type="number" [(ngModel)]="stock.quantity" name="quantity" #quantity="ngModel">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="City" type="text">
+                        <input matInput placeholder="Product Type" type="text" [(ngModel)]="stock.product.type" name="type" #type="ngModel">
                     </mat-form-field>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Country" type="text">
+                        <input matInput placeholder="City" type="text" [(ngModel)]="stock.product.city" name="city" #city="ngModel">
                     </mat-form-field>
                 </div>
             </div>
@@ -48,7 +50,7 @@
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
+                            aria-describedby="inputGroupFileAddon01" (change)="setFile($event)">
                         <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
                             <a>Upload image</a></label>
                     </div>
@@ -56,13 +58,13 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label>Search Key Words</label>
+                    <label>Description</label>
                     <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Tunisian Product"></textarea>
+                        <textarea matInput placeholder="Tunisian Product" [(ngModel)]="stock.product.description" name="description" #description="ngModel"></textarea>
                     </mat-form-field>
                 </div>
             </div>
-            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Product</button>
+            <button mat-raised-button (click)="submitProduct()" class="btn btn-danger pull-right">Save Product</button>
             <div class="clearfix"></div>
         </form>
     </div>
