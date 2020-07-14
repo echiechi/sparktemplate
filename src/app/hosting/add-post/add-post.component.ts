@@ -11,17 +11,42 @@ export class AddPostComponent implements OnInit {
 
   post = new Post();
   userId: number;
-  image;
+  image;title;city;description;
   constructor(private PostService:PostService) { }
 
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    let formData: FormData = new FormData();
+  async  savePost(){ 
+    let formData = new FormData();
     formData.append('file', this.image);
-    this.PostService.sendFile(formData).subscribe(res => console.log(res));
+    formData.append('title',this.title);
+    formData.append('description',this.description);
+    formData.append('city',this.city);
+
+        let response =await fetch('http://127.0.0.1:8001/post/new/image',{
+          method: 'POST',
+          body: formData
+        });
+        let result =  await response.json();
+        console.log(result);
+    }
+
+   onSubmit() {
+     this.savePost();
+//     let formData: FormData = new FormData(this);
+//     formData.append('file', this.image);
+//     formData.append('title', this.title);
+//     console.log(this);
+// console.log(this.title);
+//     let response = fetch('/post/image/new',{
+//       method:"POST",
+//       body:formData
+//     });
+//     let result =  response.json();
+//     console.log(result);
+   // this.PostService.sendFile(formData).subscribe(res => console.log(res));
   }
 
   setFile(changeEvent: any) {
