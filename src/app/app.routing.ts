@@ -10,6 +10,10 @@ import {ArtisanatModule} from './artisanat/artisanat.module';
 import {GalleryComponent} from './gallery/gallery.component';
 import {SpadminComponent} from './spadmin/spadmin.component';
 
+import {CulturalAndHistoricSitesComponent} from './cultural-and-historic-sites/cultural-and-historic-sites.component';
+import {LoginComponent} from './user-profile/login/login.component';
+import {InscriptionComponent} from './user-profile/inscription/inscription.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -35,6 +39,15 @@ const routes: Routes = [
   },
   /*{ path: 'admin', component: AdminLayoutComponent },
   { path: '**', redirectTo: 'admin' }*/
+    {
+        path: 'artisanat',
+        loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)
+    },
+    {path: 'cultural-and-historic-sites', component: CulturalAndHistoricSitesComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'inscription', component: InscriptionComponent},
+    /*{ path: 'admin', component: AdminLayoutComponent },
+    { path: '**', redirectTo: 'admin' }*/
 ];
 
 @NgModule({

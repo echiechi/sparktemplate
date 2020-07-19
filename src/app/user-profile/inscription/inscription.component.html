@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Inscription</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="inscription()">
+                <div class="row">
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Your Name" name="nom" [(ngModel)]="nom">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Your Lastname" type="text" name="prenom" [(ngModel)]="prenom">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" type="text" name="email" [(ngModel)]="email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="password" type="password" name="password" [(ngModel)]="password">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="confirmPassword" type="text" name="confirmPassword" [(ngModel)]="confirmPassword">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">
+                                <i class="material-icons">
+                                    cloud_upload</i>
+                            </span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                   aria-describedby="inputGroupFileAddon01" name="avatar" [(ngModel)]="avatar" observeFiles >
+                            <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
+                                <a>Upload your profile image</a></label>
+                        </div>
+                    </div>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Inscription</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

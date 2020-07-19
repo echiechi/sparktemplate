@@ -1,0 +1,64 @@
+<div>
+    <h3>My Shop</h3>
+</div>
+<div class="row">
+    <div class="card col-md-4">
+        <button mat-button routerLink="products"> Products Mangement</button>
+    </div>
+    <div class="col-md-8" style="padding-right: 50px;">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let card of cards">
+                <app-small-card [icon]="card.icon" [category]="card.category" [title]="card.title"
+                    [secondaryIcon]="card.secondaryIcon" [secondaryText]="card.secondaryText"></app-small-card>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card card-chart" style="margin-left: 5px;">
+                <div class="card-header card-header-success">
+                    <div class="ct-chart" id="dailySalesChart"></div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Daily Sales</h4>
+                    <p class="card-category">
+                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today
+                        sales.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> updated 4 minutes ago
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-left: 20px;padding-right: 20px;">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Orders</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Delivery status</th>
+                    <th>Order</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of [1,2,3]">
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td><a>Order</a></td>
+                        <td>In progress</td>
+                        <td>
+                            <a mat-button> View </a>
+                            <button mat-button color="warn"> Delete </button>
+                            <button mat-button color="warn"> Change Status </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
