@@ -63,7 +63,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "material-dashboard-angular:build:production"
+              "browserTarget": "material-dashboard-angular:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },

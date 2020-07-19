@@ -5,4 +5,5 @@ export class Fish {
     fishDescription: string;
     season: string;
     minDepth: number;
+    size: string;
 }

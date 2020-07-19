@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {SpearfishComponent} from './spearfish/spearfish.component';
+import {ArtisanatModule} from './artisanat/artisanat.module';
+import {GalleryComponent} from './gallery/gallery.component';
+import {SpadminComponent} from './spadmin/spadmin.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -21,8 +25,13 @@ const routes: Routes =[
   },
   {path: 'fishmap',
     component: SpearfishComponent},
+  {path: 'gallery',
+    component: GalleryComponent},
+  {path: 'spadmin',
+    component: SpadminComponent},
   { path: 'artisanat',
-    loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)
+    component: ArtisanatModule
+    // loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)
   },
   /*{ path: 'admin', component: AdminLayoutComponent },
   { path: '**', redirectTo: 'admin' }*/
@@ -32,6 +41,7 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
+      HttpClientModule,
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules
     })

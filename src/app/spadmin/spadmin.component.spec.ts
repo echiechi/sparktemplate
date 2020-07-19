@@ -1,21 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpearfishComponent } from './spearfish.component';
+import { SpadminComponent } from './spadmin.component';
 
-
-describe('SpearfishComponent', () => {
-  let component: SpearfishComponent;
-  let fixture: ComponentFixture<SpearfishComponent>;
+describe('SpadminComponent', () => {
+  let component: SpadminComponent;
+  let fixture: ComponentFixture<SpadminComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpearfishComponent ]
+      declarations: [ SpadminComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpearfishComponent);
+    fixture = TestBed.createComponent(SpadminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
