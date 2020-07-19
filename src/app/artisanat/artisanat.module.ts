@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSliderModule } from '@angular/material/slider';
+
 import { NewShopComponent } from './new-shop/new-shop.component';
 import { MyShopComponent } from './my-shop/my-shop.component';
 import { MatTableModule } from '@angular/material/table';
@@ -18,20 +20,27 @@ import { WorkersComponent } from './my-shop/workers/workers.component';
 import { SmallCardComponent } from './my-shop/small-card/small-card.component';
 import { MyProductsComponent } from './my-shop/my-products/my-products.component';
 import { MyGridComponent } from './my-shop/my-grid/my-grid.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
+import { MyCartComponent } from './my-cart/my-cart.component';
+import { FrontShopComponent } from './front-shop/front-shop.component';
 
 @NgModule({
-  declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent, WorkersComponent, SmallCardComponent, MyProductsComponent, MyGridComponent],
-  imports: [
-    CommonModule,
-    ArtisanatRoutingModule,
-    MatButtonModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatListModule
-  ]
+    declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent, WorkersComponent, SmallCardComponent, MyProductsComponent, MyGridComponent, ProductCardComponent, MyCartComponent, FrontShopComponent],
+    exports: [
+        FrontShopComponent
+    ],
+    imports: [
+        CommonModule,
+        ArtisanatRoutingModule,
+        MatButtonModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTooltipModule,
+        MatTableModule,
+        MatListModule,
+        MatSliderModule
+    ]
 })
 export class ArtisanatModule { }

@@ -6,6 +6,7 @@ import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {CulturalAndHistoricSitesComponent} from './cultural-and-historic-sites/cultural-and-historic-sites.component';
 import {LoginComponent} from './user-profile/login/login.component';
+import {InscriptionComponent} from './user-profile/inscription/inscription.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,7 @@ const routes: Routes = [
     },
     {path: 'cultural-and-historic-sites', component: CulturalAndHistoricSitesComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'inscription', component: InscriptionComponent},
     /*{ path: 'admin', component: AdminLayoutComponent },
     { path: '**', redirectTo: 'admin' }*/
 ];

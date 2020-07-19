@@ -1,4 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+
+
     <div class="container-fluid">
         <div class="logo">
             <a class="simple-text">
@@ -55,7 +57,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
+                    <a class="nav-link" routerLink="/artisanat/cart">
                         <i class="material-icons">shopping_cart</i>
                         <p>
                             <span class="d-lg-none d-md-block">Stats</span>
@@ -89,16 +91,35 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">person</i>
-                        <p>
-                            <span class="d-lg-none d-md-block">Some Actions</span>
-                        </p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <app-login></app-login>
+                    <div *ngIf="connected; else elseBlock">
+                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <div class="roundedImage">
+                                <img width="100%" src="assets/img/faces/marc.jpg" alt="1"/>
+                            </div>
+                            <p>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="/inscription">Profile</a>
+                            <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
+                            <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+                        </div>
                     </div>
+                    <ng-template #elseBlock>
+                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">person</i>
+                            <p>
+                                <span class="d-lg-none d-md-block">Some Actions</span>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <app-login></app-login>
+                        </div>
+                    </ng-template>
                 </li>
             </ul>
         </div>

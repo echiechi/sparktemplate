@@ -6,30 +6,41 @@
                     <h4 class="card-title">Search For Products</h4>
                 </div>
                 <div class="card-body">
-                    Product
+                    <div style="padding: 10px;">
+                        Popular products
+                    </div>
+                    <div style="padding: 10px;">Number of Likes: <i class="material-icons heartIcon">
+                            favorite</i>
+                        <i class="material-icons heartIcon" *ngFor="let i of [1,2,3,4]">
+                            favorite_border</i></div>
+                    <div style="padding: 10px;">
+                        Popular Type
+                    </div>
+                    <div style="padding: 10px;">
+                        <mat-form-field>
+                            <mat-label>Types</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of ['l','b','c']" [value]="food">
+                                    {{food}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="padding: 10px;">
+                        Price
+                    </div>
+                    <div style="padding: 10px;">
+                        <mat-slider></mat-slider>251 DT
+                    </div>
+                    <div>
+                        Location
+                    </div>
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
-            <div class="card" *ngFor="let i of [1,2,3,4,5]" style="margin-bottom:-25px">
-                <div class="card-body card-size row">
-                    <div class="col-md-2">
-                        <img alt="product" style="width :100%; height : 100%">
-                    </div>
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h4>Product</h4>
-                            </div>
-                            <div class="col-md-1" style="margin-top: 8vh;">
-                                <button mat-icon-button color="primary">
-                                    <i class="material-icons">add_shopping_cart</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <app-product-card></app-product-card>
         </div>
     </div>
 </div>

@@ -14,6 +14,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {FormsModule} from '@angular/forms';
+import {ArtisanatModule} from '../artisanat/artisanat.module';
 
 @NgModule({
     imports: [
@@ -27,6 +29,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         MatInputModule,
         MatSelectModule,
         MatTooltipModule,
+        FormsModule,
+        ArtisanatModule,
     ],
   declarations: [
     FooterComponent,
