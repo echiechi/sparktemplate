@@ -133,4 +133,8 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+    logout() {
+        localStorage.removeItem('currentUser')
+        this.loginService.loginNotif.next(false)
+    }
 }

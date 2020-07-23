@@ -10,16 +10,7 @@ export class InscriptionService {
     constructor(private http: HttpClient) {
     }
 
-    inscription(email: string, password: string, nom: string, prenom: string, avatar: File) {
-
-        return this.http.post<User>('http://127.0.0.1:8000/user/add',
-            {
-                'nom': nom,
-                'prenom': prenom,
-                'password': password,
-                'email': email,
-                'avatar': avatar,
-            }
-        )
+    inscription(formData: FormData) {
+        return this.http.post<User>('http://127.0.0.1:8000/user/add', formData)
     }
 }
