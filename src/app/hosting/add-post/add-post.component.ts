@@ -18,12 +18,13 @@ export class AddPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async  savePost(){ 
+  async  savePost(f){ 
     let formData = new FormData();
+    console.log(f);
     formData.append('file', this.image);
-    formData.append('title',this.title);
-    formData.append('description',this.description);
-    formData.append('city',this.city);
+    formData.append('title',f.title);
+    formData.append('description',f.description);
+    formData.append('city',f.city);
 
         let response =await fetch('http://127.0.0.1:8001/post/new/image',{
           method: 'POST',
@@ -33,8 +34,8 @@ export class AddPostComponent implements OnInit {
         console.log(result);
     }
 
-   onSubmit() {
-     this.savePost();
+   onSubmit(f) {
+     this.savePost(f);
 //     let formData: FormData = new FormData(this);
 //     formData.append('file', this.image);
 //     formData.append('title', this.title);

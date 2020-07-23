@@ -1,5 +1,5 @@
 
-<div class="card mb-3" *ngFor="let i of [1,2,3,4,5]" style="max-width: 1200px;">
+<div class="card mb-3" *ngFor="let post of posts" style="max-width: 1200px;">
         <div class="row no-gutters">
         <div class="col-md-4">  
         <div class="card-header card-header-icon card-header-rose">
@@ -19,54 +19,38 @@
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="assets/img/test1.jfif" style="width :100%; height : 100%">
+                  <img src="http://127.0.0.1:8001/img/{{ post.post_image }}" style="width :100%; height : 100%">
                   <div class="carousel-caption">
                   </div>
                 </div>
-            
-                <div class="carousel-item" id="slide2">
-                  <img src="assets/img/test3.jfif" style="width :100%; height : 100%">
-                  <div class="carousel-caption">
-                  </div>
-                </div>
-                <div class="carousel-item" id="slide3">
-                  <img src="assets/img/reem.jpg" style="width :100%; height : 100%">
-                  <div class="carousel-caption">
-                    <p>Travel! Enjoy!</p>
-                  </div>
-                </div>
+           
             
               </div>
-              <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+              
             </div>
           </div>     
          </div>
         <div class="col-md-8">
           <div class="card-body">
             
-            <h5 class="card-title">Extra Couch At Tunis</h5>
-            <p class="card-text">Hi This is Alex, I  live in Tunis. I have an extra couch and I can welcome those who wants to discover Tunisia. 
-            I am a cool person, so if you are interested contact me directly or book you couch :)
-            </p>
+            <h5 class="card-title">{{ post.title }}</h5>
+            <h3>{{ post.post_city_name }}</h3>
+ <ng-bind-html class="card-text" ng-bind-html="{{ post.post_description }}">
+  {{ post.post_description }}
+            </ng-bind-html>
             <div class="container">
   
             <mat-form-field> 
-              <input matInput [min]="minDate" [max]="maxDate" [formControl]="startDate" [matDatepicker]="picker" placeholder="Choose a start date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker startView="year" [startAt]="minDate"></mat-datepicker>
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Choose a start date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 startView="year" [startAt]="minDate"></mat-datepicker>
             </mat-form-field>
             
             <mat-form-field> 
-              <input matInput [min]="startDate" [max]="maxDate" [formControl]="endDate" [matDatepicker]="picker" placeholder="Choose an end date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              <!-- <input matInput [matDatepicker]="picker2"  [formControl]="endDate" > -->
+              <input matInput [min]="startDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Choose an end date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
              </div>   
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">

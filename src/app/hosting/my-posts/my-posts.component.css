@@ -1,0 +1,12 @@
+.boxContainer {
+    display: table;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background: #0088cc;
+    padding: 2%;
+    display: table-cell;
+    text-align: right;
+    vertical-align: bottom;
+}

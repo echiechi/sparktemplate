@@ -5,6 +5,8 @@ import { PostsComponent } from './posts/posts.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostCardComponent } from './posts/post-card/post-card.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const routes: Routes = [
 
@@ -29,8 +31,17 @@ const routes: Routes = [
     path: 'profile',
     component:ProfileComponent,
     pathMatch:'full'
+  },
+  {
+    path: 'editPost/:id',
+    component:EditPostComponent,
+    pathMatch:'full'
+  },
+  {
+    path: 'myposts/:id',
+    component:MyPostsComponent,
+    pathMatch:'full'
   }
-
 ];
 
 @NgModule({

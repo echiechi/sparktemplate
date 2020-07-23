@@ -16,10 +16,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostCardComponent } from './posts/post-card/post-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 
 @NgModule({
-  declarations: [RecherchepostComponent, PostsComponent, AddPostComponent, ProfileComponent,PostCardComponent],
+  declarations: [RecherchepostComponent, PostsComponent, AddPostComponent, ProfileComponent,PostCardComponent, MyPostsComponent, EditPostComponent],
   imports: [
     CommonModule,
     HostingRoutingModule,

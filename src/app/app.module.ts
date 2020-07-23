@@ -1,10 +1,7 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
-=======
-import { HttpModule } from '@angular/http';
->>>>>>> 66dedcd879e3ae746ed8efe7924fc84ef3989d69
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -18,30 +15,30 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
     AgmCoreModule.forRoot({
-<<<<<<< HEAD
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    }),
-    NgbModule
-=======
       apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
     })
->>>>>>> 66dedcd879e3ae746ed8efe7924fc84ef3989d69
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
