@@ -4,33 +4,33 @@
             <h4 class="card-title">Inscription</h4>
         </div>
         <div class="card-body">
-            <form (ngSubmit)="inscription()">
+            <form [formGroup]="form" (ngSubmit)="inscription(f.value)" #f="ngForm">
                 <div class="row">
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Your Name" name="nom" [(ngModel)]="nom">
+                            <input matInput class="form-control" placeholder="Your Name" name="nom" formControlName="nom" required [(ngModel)]="userInscri.nom" value="testuser">
                         </mat-form-field>
                     </div>
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Your Lastname" type="text" name="prenom" [(ngModel)]="prenom">
+                            <input matInput class="form-control" placeholder="Your Lastname" type="text" formControlName="prenom" name="prenom" required [(ngModel)]="userInscri.prenom" value="last">
                         </mat-form-field>
                     </div>
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Email" type="text" name="email" [(ngModel)]="email">
+                            <input matInput class="form-control" placeholder="Email" type="text" formControlName="email" name="email" required [(ngModel)]="userInscri.email" value="user@a.a">
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="password" type="password" name="password" [(ngModel)]="password">
+                            <input matInput class="form-control" placeholder="password" type="password" formControlName="password" name="password" required [(ngModel)]="userInscri.password" value="123">
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="confirmPassword" type="text" name="confirmPassword" [(ngModel)]="confirmPassword">
+                            <input matInput class="form-control" placeholder="confirmPassword" type="password" formControlName="confirmPassword" name="confirmPassword" required [(ngModel)]="confirmPassword" value="123">
                         </mat-form-field>
                     </div>
                 </div>
@@ -43,10 +43,10 @@
                             </span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                   aria-describedby="inputGroupFileAddon01" name="avatar" [(ngModel)]="avatar" observeFiles >
-                            <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
-                                <a>Upload your profile image</a></label>
+                            <input #fileInput type="file" class="custom-file-input" id="inputAvatar" class="form-control"
+                                   aria-describedby="inputGroupFileAddon01" name="avatar" required formControlName="avatar" [(ngModel)]="userInscri.avatar" (change)="uploadFile($event)" >
+                            <label class="custom-file-label" style="color : blue" for="inputAvatar">
+                                <button (click)="fileInput.click()">Upload your profile image </button></label>
                         </div>
                     </div>
                 </div>

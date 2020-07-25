@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header card-header-danger">
+        <h4 class="card-title">Edit {{post.title}}</h4>
+        <p class="card-category"></p>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+           <input  name="id"  type="hidden"  [(ngModel)]="post.id"> 
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <input  name="title"  [(ngModel)]="post.title" name="title"  matInput placeholder="Title">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+
+                        <mat-label>Leave your post</mat-label>
+                        <textarea  name="description"  [(ngModel)]="post.description" name="description" matInput placeholder="">{{post.description}}</textarea>                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <input  name="city"  matInput placeholder="City" [(ngModel)]="post.city" name="city" type="text" value="post.city">
+                    </mat-form-field>
+                </div>
+              
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">
+                            <i class="material-icons">
+                                cloud_upload</i>
+                        </span>
+                    </div>
+                    <div class="custom-file">
+                        <input  type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
+                            <a>Upload image</a></label>
+                    </div>
+                </div>
+            </div>
+  
+            <button mat-raised-button  type="submit" class="btn btn-danger pull-right">Edit Post</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

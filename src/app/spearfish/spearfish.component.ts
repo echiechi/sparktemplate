@@ -21,8 +21,8 @@ declare var ol: any;
 })
 export class SpearfishComponent implements OnInit {
     iconSpot = 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg';
-    iconFish = 'http://127.0.0.1:8000/geimg/Fish_Food_icon-icons.com_68747.svg';
-    getImgUrl = 'http://127.0.0.1:8000/geimg/'
+    iconFish = 'http://127.0.0.1:8001/geimg/Fish_Food_icon-icons.com_68747.svg';
+    getImgUrl = 'http://127.0.0.1:8001/geimg/'
     title = 'AngularSpark';
     map: any;
     vectorSource = new ol.source.Vector({});

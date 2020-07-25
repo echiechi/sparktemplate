@@ -1,6 +1,7 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -24,6 +25,9 @@ import {
     AgmCoreModule
 } from '@agm/core';
 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import {WebsocketforspeventService} from './service/websocketforspevent.service';
 import {GalleryComponent} from './gallery/gallery.component';
 import {MatInputModule} from '@angular/material/input';
@@ -43,6 +47,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     imports: [
+        MatNativeDateModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -78,7 +83,20 @@ import {MatSelectModule} from '@angular/material/select';
         MatButtonModule,
         MatOptionModule,
         MatSelectModule,
-        MatInputModule
+        MatInputModule,
+      BrowserAnimationsModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpModule,
+      ComponentsModule,
+      RouterModule,
+      HttpClientModule,
+      MatButtonModule,
+      MatOptionModule,
+      MatSelectModule,
+      AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
+      }),
     ],
     declarations: [
         AppComponent,

@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
                         error: error.error.error
                     })
                     localStorage.removeItem('currentUser')
+                    this.loginService.loginNotif.next(false)
+
                 }
             }
         );

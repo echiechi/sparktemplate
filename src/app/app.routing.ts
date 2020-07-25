@@ -16,6 +16,10 @@ import {InscriptionComponent} from './user-profile/inscription/inscription.compo
 
 const routes: Routes = [
   {
+    path: 'hosting',
+    loadChildren: () => import('./hosting/hosting.module').then(rm => rm.HostingModule)
+  },
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
@@ -39,6 +43,7 @@ const routes: Routes = [
   },
   /*{ path: 'admin', component: AdminLayoutComponent },
   { path: '**', redirectTo: 'admin' }*/
+
     {
         path: 'artisanat',
         loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)

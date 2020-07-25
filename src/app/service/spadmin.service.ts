@@ -9,7 +9,7 @@ export class SpadminService {
   constructor(private http: HttpClient) { }
 
   submitForm(formData: FormData) {
-    this.http.post('http://127.0.0.1:8000/addffrm', formData).subscribe(
+    this.http.post('http://127.0.0.1:8001/addffrm', formData).subscribe(
         (response) => console.log(response),
         (error) => console.log(error)
     )
