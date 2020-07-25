@@ -50,7 +50,7 @@ export class WsocketService {
         console.log(data);
         this._reciever.innerHTML += '<li class="left clearfix"> <div class="row">' +
             ' <div class="col-lg-1 col-md-12"><span class="chat-img pull-left">\n' +
-            '                            <img src="http://127.0.0.1:8000/geimg/octopus.png" alt="User Avatar" class="img-circle" />\n' +
+            '                            <img src="http://127.0.0.1:8001/geimg/octopus.png" alt="User Avatar" class="img-circle" />\n' +
             '                        </span></div>\n' +
             '                       <div class="col-lg-10 col-md-12"><div class="chat-body clearfix"><div class="header">\n' +
             '                                    <strong class="primary-font">' + data.user + '</strong>' +  ' <a>' + data.message + '</a>\n' +

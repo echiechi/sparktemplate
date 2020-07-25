@@ -46,7 +46,8 @@ export class InscriptionComponent implements OnInit {
         formData.append('password', this.form.get('password').value);
         // formData.append('confirmPassword', this.form.get('confirmPassword').value);
         formData.append('avatar', this.form.get('avatar').value);
-        this.inscriptionService.inscription(formData).subscribe(
+        console.log(formData);
+        this.inscriptionService.inscription( this.form.value).subscribe(
             (data) => {
                 console.log(data)
                 localStorage.setItem('currentUser', JSON.stringify(this.userLoged))

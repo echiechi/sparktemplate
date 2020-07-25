@@ -38,6 +38,11 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+    path: 'deletePost/:id/:pid',
+    component:MyPostsComponent,
+    pathMatch:'full'
+  },
+  {
     path: 'myposts/:id',
     component:MyPostsComponent,
     pathMatch:'full'

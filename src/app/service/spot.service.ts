@@ -30,23 +30,23 @@ export class SpotService {
   }
 
   getAllSpots() {
-    return this.http.get<Spot[]>('http://127.0.0.1:8000/gespo');
+    return this.http.get<Spot[]>('http://127.0.0.1:8001/gespo');
   }
 
   getAllFish() {
-    return this.http.get<Fish[]>('http://127.0.0.1:8000/geallf');
+    return this.http.get<Fish[]>('http://127.0.0.1:8001/geallf');
   }
 
   getSpotsByFish(idFish: string) {
-    return this.http.get<Spot[]>('http://127.0.0.1:8000/gespf/' + idFish);
+    return this.http.get<Spot[]>('http://127.0.0.1:8001/gespf/' + idFish);
   }
 
   getNbrFisfSpotted() {
-    return this.http.get<[1]>('http://127.0.0.1:8000/gefnbr');
+    return this.http.get<[1]>('http://127.0.0.1:8001/gefnbr');
   }
 
   getNbrSpot() {
-    return this.http.get<[1]>('http://127.0.0.1:8000/gesponbr');
+    return this.http.get<[1]>('http://127.0.0.1:8001/gesponbr');
   }
 
   displayFeatureInfo = (pixel) => {

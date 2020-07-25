@@ -10,6 +10,6 @@ export class ProductService {
 
 
   sendProdcut(form) {
-    return this.http.post('http://127.0.0.1:8000/product/new', form);
+    return this.http.post('http://127.0.0.1:8001/product/new', form);
   }
 }
