@@ -1,0 +1,38 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 50px">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Login</h4>
+                        <p class="card-category">Enter you email and password</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="login()">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Email address" type="email" name="email"
+                                               [(ngModel)]="email">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="password" type="password" name="password"
+                                               [(ngModel)]="pwd">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Login</button>
+                            <div class="clearfix"><a class="nav-link" style="max-width: 100px;padding-right: 0px;"
+                                                     routerLink="/inscription">inscription</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

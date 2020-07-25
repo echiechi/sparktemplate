@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Inscription</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="inscription()" >
+                <div class="row">
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput class="form-control" placeholder="Your Name" name="nom" formControlName="nom" required [(ngModel)]="userInscri.nom">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput class="form-control" placeholder="Your Lastname" type="text" formControlName="prenom" name="prenom" required [(ngModel)]="userInscri.prenom">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput class="form-control" placeholder="Email" type="text" formControlName="email" name="email" required [(ngModel)]="userInscri.email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput class="form-control" placeholder="password" type="password" formControlName="password" name="password" required [(ngModel)]="userInscri.password">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput class="form-control" placeholder="confirmPassword" type="text" formControlName="confirmPassword" name="confirmPassword" required [(ngModel)]="confirmPassword">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">
+                                <i class="material-icons">
+                                    cloud_upload</i>
+                            </span>
+                        </div>
+                        <div class="custom-file">
+                            <input #fileInput type="file" class="custom-file-input" id="inputAvatar" class="form-control"
+                                   aria-describedby="inputGroupFileAddon01" name="avatar" required formControlName="avatar" [(ngModel)]="userInscri.avatar" (change)="uploadFile($event)" >
+                            <label class="custom-file-label" style="color : blue" for="inputAvatar">
+                                <button (click)="fileInput.click()">Upload your profile image </button></label>
+                        </div>
+                    </div>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Inscription</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
