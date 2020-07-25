@@ -20,7 +20,7 @@ export class WebsocketforspeventService {
 
         this.ws.onmessage = (event) => {
             console.log(event);
-              this.addMessageToChannel(event)
+            this.addMessageToChannel(event)
         };
 
         this.ws.onclose = (event) => {
@@ -40,8 +40,8 @@ export class WebsocketforspeventService {
                 user: this.userName,
                 message: 'spevent websocket on line'
             }));
-         this.addMessageToChannel(event)
-           // this.speventChange.next(this.spevents);
+            this.addMessageToChannel(event)
+            // this.speventChange.next(this.spevents);
             console.log(event);
             console.log('hello');
         };
@@ -54,8 +54,8 @@ export class WebsocketforspeventService {
             (data: Spevent[]) => {
                 this.spevents = data;
                 this.speventChange.next(this.spevents)
-            } );
-       // this.speventChange.next(this.spevents);
+            });
+        // this.speventChange.next(this.spevents);
         console.log('message sended');
     }
 

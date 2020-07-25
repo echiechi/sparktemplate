@@ -8,6 +8,8 @@ import {SpeventService} from '../service/spevent.service';
 import {WebsocketforspeventService} from '../service/websocketforspevent.service';
 import {Participantspevent} from '../model/Participantspevent';
 import {ParticipantspeventService} from '../service/participantspevent.service';
+import {Fishspot} from '../model/Fishspot';
+import {FishspotService} from '../service/fishspot.service';
 
 
 declare var ol: any;
@@ -48,6 +50,7 @@ export class SpearfishComponent implements OnInit {
     nbrFishSotted: any[];
     nbrSpot: any[];
     spevent: Spevent = new Spevent();
+    fishSpot: Fishspot = new Fishspot();
     spevents: Spevent[] = null;
     participantspevent: Participantspevent[] = null;
     s = '';
@@ -56,7 +59,8 @@ export class SpearfishComponent implements OnInit {
 
     constructor(private spotService: SpotService, private webSocket: WsocketService,
                 private speventService: SpeventService, private participantspeventService: ParticipantspeventService,
-                private websocketforspevent: WebsocketforspeventService) {
+                private websocketforspevent: WebsocketforspeventService,
+                private  fishspotService: FishspotService) {
         this.spevents = websocketforspevent.spevents;
         // spevent change est un observable qui suit la mise à jour de la liste des event
         this._subscription = websocketforspevent.speventChange.subscribe((value) => {
@@ -101,9 +105,9 @@ export class SpearfishComponent implements OnInit {
                 this.spots = data;
                 this.actualiserFishSpot();
             });
-    /*    setTimeout(() => {
-            this.actualiserFishSpot();
-        }, 2000); */
+        /*    setTimeout(() => {
+                this.actualiserFishSpot();
+            }, 2000); */
         this.spotService.getAllFish().subscribe(
             (data: Fish[]) => this.fishs = data
         );
@@ -164,7 +168,7 @@ export class SpearfishComponent implements OnInit {
 
         const info = document.getElementById('info');
         if (feature) {
-            info.innerHTML = feature.getId() + ': ' + feature.get('label');
+            info.innerHTML =  'Spot id: ' + feature.get('label');
         } else {
             info.innerHTML = '&nbsp;';
         }
@@ -173,21 +177,12 @@ export class SpearfishComponent implements OnInit {
     affecterFishAFish2() {
         this.fish2 = this.fishs.find(i => i.idFish === this.fish.idFish);
         console.log(this.fish2.idFish);
-        this.getFishSpot(this.fish2.idFish);
-        setTimeout(() => {
-            this.actualiserFishSpot();
-        }, 2000)
+        this.spotService.getSpotsByFish(this.fish2.idFish).subscribe(
+            (data: Spot[]) => {
+                this.spots = data;
+                this.actualiserFishSpot();
+            });
     }
-
-    getFishSpot(idFish) {
-        this.spotService.getSpotsByFish(idFish).subscribe(
-            (data: Spot[]) => this.spots = data
-        );
-        setTimeout(() => {
-            console.log(this.spots);
-        }, 4000)
-    }
-
     removeFeature() {
         this.vectorLayer.getSource().clear();
     }
@@ -280,5 +275,11 @@ export class SpearfishComponent implements OnInit {
     getUserByEvent(idEvent) {
         //  console.log(this.participantspevent.find(i => i.id_event === idEvent.toString()));
         return this.participantspevent.find(i => i.id_event === idEvent.toString()) !== undefined;
+    }
+
+    addFishSpot() {
+        this.fishSpot.userId = this.userId;
+        console.log(this.fishSpot)
+        this.fishspotService.addFishspot(this.fishSpot).subscribe()
     }
 }

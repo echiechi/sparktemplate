@@ -25,9 +25,9 @@ import {
 } from '@agm/core';
 
 import {WebsocketforspeventService} from './service/websocketforspevent.service';
-import { GalleryComponent } from './gallery/gallery.component';
+import {GalleryComponent} from './gallery/gallery.component';
 import {MatInputModule} from '@angular/material/input';
-import { SpadminComponent } from './spadmin/spadmin.component';
+import {SpadminComponent} from './spadmin/spadmin.component';
 import {SpeventService} from './service/spevent.service';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
@@ -35,7 +35,7 @@ import {AdminLayoutModule} from './layouts/admin-layout/admin-layout.module';
 import {CulturalAndHistoricSitesComponent} from './cultural-and-historic-sites/cultural-and-historic-sites.component';
 import {LoginComponent} from './user-profile/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { InscriptionComponent } from './user-profile/inscription/inscription.component';
+import {InscriptionComponent} from './user-profile/inscription/inscription.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
@@ -55,31 +55,30 @@ import {MatSelectModule} from '@angular/material/select';
             apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
         }),
         MatInputModule,
-      BrowserAnimationsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      HttpModule,
-      ComponentsModule,
-      RouterModule,
-      AdminLayoutModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-      }),
-      MatFormFieldModule,
-      BrowserAnimationsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      HttpModule,
-      ComponentsModule,
-      RouterModule,
-      HttpClientModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
-      }),
-      MatButtonModule,
-      MatOptionModule,
-      MatSelectModule,
-      MatInputModule
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        ComponentsModule,
+        AdminLayoutModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+        }),
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        ComponentsModule,
+        RouterModule,
+        HttpClientModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
+        }),
+        MatButtonModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatInputModule
     ],
     declarations: [
         AppComponent,
@@ -87,13 +86,14 @@ import {MatSelectModule} from '@angular/material/select';
         SpearfishComponent,
         GalleryComponent,
         SpadminComponent,
-      AppComponent,
-      AdminLayoutComponent,
-      CulturalAndHistoricSitesComponent,
-      InscriptionComponent,
+        AppComponent,
+        AdminLayoutComponent,
+        CulturalAndHistoricSitesComponent,
+        InscriptionComponent,
     ],
     providers: [WsocketService, WebsocketforspeventService, SpeventService],
     bootstrap: [AppComponent],
     exports: []
 })
-export class AppModule { }
+export class AppModule {
+}
