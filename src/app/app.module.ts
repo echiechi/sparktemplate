@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-=======
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
->>>>>>> 85c24498c5bfa10e17805207c259d6c7819ac2f6
 
 
 import {AppRoutingModule} from './app.routing';
@@ -32,37 +25,10 @@ import {UpgradeComponent} from './upgrade/upgrade.component';
 import {
     AgmCoreModule
 } from '@agm/core';
-<<<<<<< HEAD
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
-@NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    BrowserModule,
-    HttpClientModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
-    })
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-=======
 
 import {WebsocketforspeventService} from './service/websocketforspevent.service';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -82,7 +48,9 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
-    imports: [
+    imports: [      
+        MatDatepickerModule,
+        MatNativeDateModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -91,20 +59,7 @@ import {MatSelectModule} from '@angular/material/select';
         RouterModule,
         AppRoutingModule,
         HttpClientModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-        }),
         MatInputModule,
-      BrowserAnimationsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      HttpModule,
-      ComponentsModule,
-      RouterModule,
-      AdminLayoutModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-      }),
       MatFormFieldModule,
       BrowserAnimationsModule,
       FormsModule,
@@ -113,13 +68,12 @@ import {MatSelectModule} from '@angular/material/select';
       ComponentsModule,
       RouterModule,
       HttpClientModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
-      }),
       MatButtonModule,
       MatOptionModule,
       MatSelectModule,
-      MatInputModule
+      AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyDQvX7Zv9GqP4abRRHmqiClQP-0TzMCedk'
+      }),
     ],
     declarations: [
         AppComponent,
@@ -135,6 +89,5 @@ import {MatSelectModule} from '@angular/material/select';
     providers: [WsocketService, WebsocketforspeventService, SpeventService],
     bootstrap: [AppComponent],
     exports: []
->>>>>>> 85c24498c5bfa10e17805207c259d6c7819ac2f6
 })
 export class AppModule { }
