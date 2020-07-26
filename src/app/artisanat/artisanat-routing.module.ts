@@ -7,6 +7,7 @@ import { MyShopComponent } from './my-shop/my-shop.component';
 import { MyProductsComponent } from './my-shop/my-products/my-products.component';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { FrontShopComponent } from './front-shop/front-shop.component';
+import { OrdersComponent } from './my-shop/orders/orders.component';
 
 const routes: Routes = [{
   path: 'products',
@@ -14,6 +15,11 @@ const routes: Routes = [{
   pathMatch: 'full'
 }, {
   path: 'newShop',
+  component: NewShopComponent,
+  pathMatch: 'full'
+},
+{
+  path: 'editShop/:shopid',
   component: NewShopComponent,
   pathMatch: 'full'
 },
@@ -34,6 +40,11 @@ const routes: Routes = [{
 {
   path: 'myShop/:id/editproduct/:porduct',
   component: NewProductComponent,
+  pathMatch: 'full'
+},
+{
+  path: 'myShop/:id/orders',
+  component: OrdersComponent,
   pathMatch: 'full'
 },
 {

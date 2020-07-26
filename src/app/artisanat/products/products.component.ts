@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
+import { Stock } from '../models/Stock';
 declare const google: any;
 
 @Component({
@@ -7,114 +9,48 @@ declare const google: any;
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
-  constructor() { }
+  products;
+  productsFilter;
+  maxLikes = 0;
+  maxPrice = 0;
+  likesFilter = 0;
+  priceFilter = 0;
+  productFilter = '';
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
-    var mapOptions = {
-      zoom: 13,
-      center: myLatlng,
-      scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
-      styles: [{
-        "featureType": "water",
-        "stylers": [{
-          "saturation": 43
-        }, {
-          "lightness": -11
-        }, {
-          "hue": "#0088ff"
-        }]
-      }, {
-        "featureType": "road",
-        "elementType": "geometry.fill",
-        "stylers": [{
-          "hue": "#ff0000"
-        }, {
-          "saturation": -100
-        }, {
-          "lightness": 99
-        }]
-      }, {
-        "featureType": "road",
-        "elementType": "geometry.stroke",
-        "stylers": [{
-          "color": "#808080"
-        }, {
-          "lightness": 54
-        }]
-      }, {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry.fill",
-        "stylers": [{
-          "color": "#ece2d9"
-        }]
-      }, {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [{
-          "color": "#ccdca1"
-        }]
-      }, {
-        "featureType": "road",
-        "elementType": "labels.text.fill",
-        "stylers": [{
-          "color": "#767676"
-        }]
-      }, {
-        "featureType": "road",
-        "elementType": "labels.text.stroke",
-        "stylers": [{
-          "color": "#ffffff"
-        }]
-      }, {
-        "featureType": "poi",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "landscape.natural",
-        "elementType": "geometry.fill",
-        "stylers": [{
-          "visibility": "on"
-        }, {
-          "color": "#b8cb93"
-        }]
-      }, {
-        "featureType": "poi.park",
-        "stylers": [{
-          "visibility": "on"
-        }]
-      }, {
-        "featureType": "poi.sports_complex",
-        "stylers": [{
-          "visibility": "on"
-        }]
-      }, {
-        "featureType": "poi.medical",
-        "stylers": [{
-          "visibility": "on"
-        }]
-      }, {
-        "featureType": "poi.business",
-        "stylers": [{
-          "visibility": "simplified"
-        }]
-      }]
-
-    };
-    var map = new google.maps.Map(document.getElementById("map"),{
-      center: {  lat: 34.6781, lng: 	10.181667 },
-      zoom: 7
-    });
-
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      title: "Hello World!"
-    });
-
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
+    this.productService.getProducts().subscribe(res => {
+      this.productsFilter = res;
+      this.products = res;
+    })
+    this.productService.getMaxLikes().subscribe((maxLikes: any) => this.maxLikes = maxLikes.max_likes);
+    this.productService.getMaxPrice().subscribe((maxPrice: any) => this.maxPrice = maxPrice.max_price);
   }
 
+  updateLikes($event) {
+    this.likesFilter = $event.value;
+    if ($event.value > 0) {
+      this.productsFilter = this.products.filter(x => x.product.likes >= $event.value);
+    } else {
+      this.productsFilter = this.products;
+    }
+  }
+
+  updatePrice($event) {
+    this.priceFilter = $event.value;
+    if ($event.value) {
+      this.productsFilter = this.products.filter(x => x.product.unitPrice <= $event.value);
+    } else {
+      this.productsFilter = this.products;
+    }
+  }
+
+  search($event, inp: HTMLInputElement) {
+    if (inp.value && inp.value != '') {
+      this.productsFilter = this.products.filter(x => x.product.name.toLowerCase().indexOf(inp.value.toLowerCase()) >= 0);
+      console.log(this.productsFilter);
+    }else{
+      this.productsFilter = this.products;
+    }
+  }
 }

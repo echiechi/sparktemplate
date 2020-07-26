@@ -25,9 +25,10 @@ import { MyCartComponent } from './my-cart/my-cart.component';
 import { FrontShopComponent } from './front-shop/front-shop.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdersComponent } from './my-shop/orders/orders.component';
 
 @NgModule({
-  declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent, WorkersComponent, SmallCardComponent, MyProductsComponent, MyGridComponent, ProductCardComponent, MyCartComponent, FrontShopComponent],
+  declarations: [ProductsComponent, NewProductComponent, NewShopComponent, MyShopComponent, WorkersComponent, SmallCardComponent, MyProductsComponent, MyGridComponent, ProductCardComponent, MyCartComponent, FrontShopComponent, OrdersComponent],
   imports: [
     CommonModule,
     ArtisanatRoutingModule,

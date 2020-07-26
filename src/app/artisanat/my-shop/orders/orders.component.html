@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead class="text-warning">
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Delivery status</th>
+        <th>Order</th>
+        <th>Quantity</th>
+
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of orders">
+            <td>{{ i.id }}</td>
+            <td>{{ i.user.nom }}</td>
+            <td><a>{{ i.status}}</a></td>
+            <td>{{ i.product.name}}</td>
+            <td>{{ i.quantity}}</td>
+
+            <td>
+                <button mat-button color="warn" (click)="delete(i)"> Delete </button>
+                <button mat-button color="warn" (click)="changeStatus(i)"> Change Status </button></td>
+        </tr>
+    </tbody>
+</table>

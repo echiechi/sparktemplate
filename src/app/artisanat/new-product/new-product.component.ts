@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../models/Stock';
 import { ProductService } from '../services/product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -11,10 +11,22 @@ export class NewProductComponent implements OnInit {
 
   stock = new Stock();
   image;
+  uploadText = 'Upload an image';
 
-  constructor(private productService: ProductService,private router: Router) { }
+  constructor(private productService: ProductService,
+    private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(res => {
+      if (res['params'].porduct)
+        this.productService.getProdcutById(res['params'].porduct).subscribe((stock: any) => {
+          this.stock.id = stock.id;
+          this.stock.product = stock.product;
+          this.stock.quantity = stock.quantity;
+          this.stock.shop = stock.shop;
+        })
+    });
+
   }
 
   submitProduct() {
@@ -30,7 +42,7 @@ export class NewProductComponent implements OnInit {
     formData.append('unitPrice', '' + this.stock.product.unitPrice);
     formData.append('quantity', this.stock.quantity);
     this.productService.sendProdcut(formData)
-      .subscribe(result =>{
+      .subscribe(result => {
         console.log(result);
         this.router.navigateByUrl('/artisanat/myShop/1/products');
       });
@@ -38,6 +50,8 @@ export class NewProductComponent implements OnInit {
 
   setFile(changeEvent: any) {
     this.image = changeEvent.target.files[0];
+    console.log(this.image);
+    this.uploadText = this.image.name;
   }
 
 
