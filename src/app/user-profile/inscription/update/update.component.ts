@@ -1,18 +1,13 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {User} from '../login/model/user';
-import {InscriptionService} from './services/inscription.service';
-import {LoginService} from '../login/services/login.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../login/model/user';
+import {FormGroup} from '@angular/forms';
 
 @Component({
-    selector: 'app-inscription',
-    templateUrl: './inscription.component.html',
-    styleUrls: ['./inscription.component.css']
+    selector: 'app-update',
+    templateUrl: './update.component.html',
+    styleUrls: ['./update.component.css']
 })
-export class InscriptionComponent implements OnInit {
-    @Output() connected: boolean;
-    @Input() confirmPassword: string;
-    userConnected: User;
+export class UpdateComponent implements OnInit {
     userInscri: User;
     form: FormGroup;
     image;
@@ -20,9 +15,11 @@ export class InscriptionComponent implements OnInit {
     prenom;
     email;
     password;
+    connected;
+    userConnected: User;
+    confirmPassword;
 
-    constructor(private inscriptionService: InscriptionService) {
-
+    constructor() {
     }
 
     ngOnInit(): void {
@@ -30,7 +27,6 @@ export class InscriptionComponent implements OnInit {
         if (localStorage.getItem('currentUser') != null) {
             this.connected = true;
             const str: string = localStorage.getItem('currentUser');
-
             this.userConnected = JSON.parse(str);
         } else {
             this.connected = false;
@@ -47,13 +43,18 @@ export class InscriptionComponent implements OnInit {
         // formData.append('confirmPassword', this.form.get('confirmPassword').value);
         formData.append('avatar', this.image);
         formData.append('roles', '');
+        formData.append('confirmPassword', f.confirmPassword);
 
-        let response = await fetch('http://127.0.0.1:8000/user/add', {
+        let response = await fetch('http://127.0.0.1:8000/user/update/' + this.userConnected.id, {
             method: 'POST',
             body: formData
         });
         let result = await response.json();
-        console.log(result);
+        if (response.status === 200) {
+            this.userConnected = JSON.parse(result);
+            localStorage.removeItem('currentUser');
+            localStorage.setItem('currentUser', result);
+        }
     }
 
 
@@ -61,6 +62,4 @@ export class InscriptionComponent implements OnInit {
         this.image = changeEvent.target.files[0];
         console.log(this.image);
     }
-
-
 }

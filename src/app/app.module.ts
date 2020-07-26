@@ -14,7 +14,6 @@ import {SpearfishComponent} from './spearfish/spearfish.component';
 import {AppComponent} from './app.component';
 import {WsocketService} from './service/wsocket.service';
 
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {TableListComponent} from './table-list/table-list.component';
 import {TypographyComponent} from './typography/typography.component';
 import {IconsComponent} from './icons/icons.component';
@@ -45,10 +44,17 @@ import { InscriptionComponent } from './user-profile/inscription/inscription.com
 import {MatButtonModule} from '@angular/material/button';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { DashboardComponent } from './user-profile/dashboard/dashboard.component';
+import { CarteComponent } from './user-profile/dashboard/carte/carte.component';
+import { AddUserComponent } from './user-profile/dashboard/add-user/add-user.component';
+import { UpdateComponent } from './user-profile/inscription/update/update.component';
+import { UpdateUserDashComponent } from './user-profile/dashboard/update-user-dash/update-user-dash.component';
+import { AddEventComponent } from './cultural-and-historic-sites/add-event/add-event.component';
+import { DashComponent } from './cultural-and-historic-sites/dash/dash.component';
 
 
 @NgModule({
-    imports: [      
+    imports: [
         MatDatepickerModule,
         MatNativeDateModule,
         BrowserAnimationsModule,
@@ -85,6 +91,13 @@ import {MatSelectModule} from '@angular/material/select';
       AdminLayoutComponent,
       CulturalAndHistoricSitesComponent,
       InscriptionComponent,
+      DashboardComponent,
+      CarteComponent,
+      AddUserComponent,
+      UpdateComponent,
+      UpdateUserDashComponent,
+      AddEventComponent,
+      DashComponent,
     ],
     providers: [WsocketService, WebsocketforspeventService, SpeventService],
     bootstrap: [AppComponent],

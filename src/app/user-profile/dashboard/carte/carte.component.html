@@ -1,0 +1,21 @@
+<div class="card card-stats">
+    <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+            <div *ngIf="avatar == null; else elseBlock">
+            <i class="material-icons"><img src="http://127.0.0.1:8000/img/unknown.png" style="width: 100%;height: 100%"></i>
+            </div>
+            <ng-template #elseBlock>
+                <i class="material-icons"><img src="http://127.0.0.1:8000/img/{{ avatar }}" style="width: 100%;height: 100%"></i>
+            </ng-template>
+        </div>
+        <p class="card-category"> {{ email }}</p>
+        <p class="card-category">{{ nom }} {{prenom}}</p>
+        <h4 class="card-title">{{ roles }}</h4>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <button class="btn-danger" (click)="delete(id)">Delete</button>
+            <button class="btn-success ml-5">Update</button>
+        </div>
+    </div>
+</div>

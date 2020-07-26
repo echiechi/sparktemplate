@@ -16,7 +16,7 @@ export class LoginService {
 
     login(email: string, password: string) {
 
-        return this.http.post<User>('http://127.0.0.1:8001/login',
+        return this.http.post<User>('http://127.0.0.1:8000/login',
             {
                 'username': email,
                 'password': password
