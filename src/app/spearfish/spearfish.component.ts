@@ -21,8 +21,8 @@ declare var ol: any;
 })
 export class SpearfishComponent implements OnInit {
     iconSpot = 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg';
-    iconFish = 'http://127.0.0.1:8001/geimg/Fish_Food_icon-icons.com_68747.svg';
-    getImgUrl = 'http://127.0.0.1:8001/geimg/'
+    iconFish = 'http://127.0.0.1:8000/geimg/Fish_Food_icon-icons.com_68747.svg';
+    getImgUrl = 'http://127.0.0.1:8000/geimg/'
     title = 'AngularSpark';
     map: any;
     vectorSource = new ol.source.Vector({});
@@ -60,7 +60,8 @@ export class SpearfishComponent implements OnInit {
     constructor(private spotService: SpotService, private webSocket: WsocketService,
                 private speventService: SpeventService, private participantspeventService: ParticipantspeventService,
                 private websocketforspevent: WebsocketforspeventService,
-                private  fishspotService: FishspotService) {
+                private  fishspotService: FishspotService
+    ) {
         this.spevents = websocketforspevent.spevents;
         // spevent change est un observable qui suit la mise à jour de la liste des event
         this._subscription = websocketforspevent.speventChange.subscribe((value) => {

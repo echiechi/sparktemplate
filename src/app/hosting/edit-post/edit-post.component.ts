@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/Post';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {ApiService} from '../services/api.service';
 import { PostService } from '../services/Post.service';
-import { ActivatedRoute } from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { ActivatedRoute } from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-post',
@@ -17,7 +16,7 @@ export class EditPostComponent implements OnInit {
 
   post = new Post();
   userId: number;
-  image;title;city;description;
+  image; title; city; description;
   editForm: FormGroup;
   constructor(private PostService:PostService,private formBuilder: FormBuilder,private apiservice: ApiService,private route: ActivatedRoute) { }
   
@@ -37,7 +36,7 @@ export class EditPostComponent implements OnInit {
     this.route.params.subscribe(params => {      
       this.apiservice.getPostDetails(params.id).subscribe((data)=>{
         console.log(data);
-       this.post = data;
+      // this.post = data;
       //  this.editForm.title(data[0]);
        
         // return  data;
@@ -45,7 +44,7 @@ export class EditPostComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     return;
   }
 

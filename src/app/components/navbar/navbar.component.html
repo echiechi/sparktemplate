@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink1" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">notifications</i>
                         <span class="notification">5</span>
@@ -81,7 +81,7 @@
                             <span class="d-lg-none d-md-block">Some Actions</span>
                         </p>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
                         <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
                         <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
                         <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
@@ -92,7 +92,7 @@
 
                 <li class="nav-item dropdown">
                     <div *ngIf="connected; else elseBlock">
-                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <div class="roundedImage">
                                 <img width="100%" src="assets/img/faces/marc.jpg" alt="1"/>
@@ -100,7 +100,7 @@
                             <p>
                             </p>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink2">
                             <a class="dropdown-item" routerLink="/inscription">Profile</a>
                             <a class="dropdown-item" routerLink="/artisanat/myShop/1">My Shop</a>
                             <a class="dropdown-item" routerLink="/hosting/myposts/1">My Posts</a>
@@ -109,14 +109,14 @@
                         </div>
                     </div>
                     <ng-template #elseBlock>
-                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink3" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">person</i>
                             <p>
                                 <span class="d-lg-none d-md-block">Some Actions</span>
                             </p>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink3">
                             <app-login></app-login>
                         </div>
                     </ng-template>

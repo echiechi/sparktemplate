@@ -24,7 +24,7 @@ export class InscriptionService {
         console.log(f);
 let jsonform = JSON.stringify(f);
             
-        return this.http.post('http://127.0.0.1:8001/user/add',
+        return this.http.post('http://127.0.0.1:8000/user/add',
         jsonform
       
             );
