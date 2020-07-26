@@ -30,7 +30,6 @@ export class InscriptionComponent implements OnInit {
         if (localStorage.getItem('currentUser') != null) {
             this.connected = true;
             const str: string = localStorage.getItem('currentUser');
-
             this.userConnected = JSON.parse(str);
         } else {
             this.connected = false;

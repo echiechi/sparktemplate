@@ -66,7 +66,6 @@ const routes: Routes = [
     {path: 'cultural-and-historic-sites/dash', component: DashComponent},
     {path: 'login', component: LoginComponent},
     {path: 'inscription', component: InscriptionComponent},
-    {path: 'Dashboard', component: DashboardComponent},
     {path: 'Dashboard/add-user', component: AddUserComponent},
     {path: 'Update-profile', component: UpdateComponent},
 
