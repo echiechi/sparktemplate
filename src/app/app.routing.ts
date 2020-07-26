@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'artisanat',
     loadChildren: () => import('./artisanat/artisanat.module').then(rm => rm.ArtisanatModule)
   },
+  {
+    path: 'hiking',
+    loadChildren: () => import('./hiking/hiking.module').then(rm => rm.HikingModule)
+  }
   /*{ path: 'admin', component: AdminLayoutComponent },
   { path: '**', redirectTo: 'admin' }*/
 ];

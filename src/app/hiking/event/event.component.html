@@ -1,0 +1,101 @@
+<a class=" pull-right" routerLink="/hiking/home">Home Page</a>
+
+
+<div class="card-body">
+    <div class="tab-content">
+
+
+        <div class="tab-pane active" id="profile">
+            <table class="table">
+                <tbody>
+
+                <div class="card" style="margin-bottom:-25px">
+                    <div class="card-body card-size row">
+                        <div class="col-md-12 img">
+
+
+                            <div class="card-body">
+
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="profile">
+                                            <h2>Create Event</h2>
+                                            <table class="table">
+                                                <tbody>
+
+                                                <div class="form-group col-md-12">
+                                                    <label>Name Event</label>
+                                                    <input type="text" class="form-control"
+                                                           [(ngModel)]="event.nameEvent"
+                                                           #t="ngModel" required minlength="3" id="name">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Place Event</label>
+                                                    <input type="text" class="form-control"
+                                                           [(ngModel)]="event.placeEvent"
+                                                           #t="ngModel" required minlength="3" id="place">
+
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <label>Date Event</label>
+                                                    <input type="date" class="form-control"
+                                                           [(ngModel)]="event.dateEvent"
+                                                           #t="ngModel" required minlength="3" id="date">
+
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <label> Price </label>
+                                                    <input type="text" class="form-control"
+                                                           [(ngModel)]="event.price"
+                                                           #t="ngModel" required minlength="3" id="price">
+                                                </div>
+
+
+
+                                                <div class="custom-file">
+                                                    <input  type="file" class="custom-file-input" id="inputGroupFile01"
+                                                            aria-describedby="inputGroupFileAddon01"
+                                                            (change)="setFile($event)"
+                                                    >
+                                                    <label class="custom-file-label" style="color : black" for="inputGroupFile01">
+                                                        <a>Upload Théme</a></label>
+                                                </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label>Description :</label>
+                                                            <textarea type="text" class="form-control" rows="5"
+                                                                      id="description"
+                                                                      [(ngModel)]="event.description"
+                                                                      #t="ngModel"  >
+
+                                                    </textarea>
+                                                        </div>
+
+
+
+
+                                                <div>
+                                                    <button type="button" class="btn btn-info marge pull-right"
+                                                            size="lg" (click)="sendEvent()"> Create
+                                                    </button>
+                                                </div>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,387 @@
+<div class="row card-body">
+    <div class="col-lg-60 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-tabs bg-info">
+                <div class="dropup">
+                    <button class="btn btn-info pull-right" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-justify" fill="">
+                            <path fill-rule="evenodd"
+                                  d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><a routerLink="/hiking/event">Create Event</a></li>
+                        <!--   <li><a routerLink="/hiking/updateEvent/">Update Event</a></li>
+                               <li><a href="#">Delete Event</a></li>
+                        -->
+                        <li role="separator" class="divider"></li>
+
+                    </ul>
+                </div>
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title"></span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                    <i class="material-icons"></i> List Event
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                    <i class="material-icons"></i> Gallery
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#settings1" data-toggle="tab">
+                                    <i class="material-icons"></i> Videos
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-body">
+                <div class="tab-content">
+
+
+                    <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody>
+
+                            <div class="card" style="margin-bottom:-25px">
+                                <div class="card-body card-size row" *ngFor="let e of listevent">
+
+                                    <div class="col-md-4 img">
+                                        <img alt="product " class="img" [src]="'http://127.0.0.1:8000/img/'+e.image"
+                                             style="width :100%; height : 100%">
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div>
+                                                <h4 class="card-title-b"><b>{{e.nameEvent}}</b></h4><h4
+                                                    class="pull-right"><b class="pull-right">{{e.price}} DT</b></h4>
+                                                <h5 class="card-title-b"><b>{{e.placeEvent}}</b></h5>
+
+
+                                                <div>
+                                                    <h6 class="card-title-b">{{e.dateEvent}}</h6>
+                                                </div>
+                                                <div class="row full-height" align="center">
+
+                                                    <div class="col-xl-12">
+
+                                                        <p align="1">
+
+                                                            {{e.description}}
+
+                                                        </p>
+
+                                                        <button type="button" class=" btn btn-info pull-right "
+                                                                [routerLink]="'/hiking/participant/'+e.nameEvent">
+                                                            Participate
+                                                        </button>
+                                                        <tr class="pull-left">
+                                                            <td>
+                                                                <li>
+                                                                    <button class="btn btn-danger pull-left fa fa-trash "
+
+                                                                            (click)="deleteEvent(e.id)">
+
+
+                                                                    </button>
+
+
+                                                                </li>
+                                                            </td>
+                                                            <td>
+
+                                                                <li><a [routerLink]="'/hiking/updateEvent/'+e.id"
+                                                                       class="bs-tooltip pull-left"
+                                                                       data-toggle="tooltip" data-placement="top"
+                                                                       title=""
+                                                                       data-original-title="Edit">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24"
+                                                                         viewBox="0 0 24 24" fill="none"
+                                                                         stroke="currentColor" stroke-width="2"
+                                                                         stroke-linecap="round" stroke-linejoin="round"
+                                                                         class="feather feather-edit-2 p-1 br-6 mb-1">
+                                                                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+
+                                                                    </svg>
+                                                                </a></li>
+                                                            </td>
+                                                        </tr>
+
+                                                        <div>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="tab-pane" id="settings">
+                        <table class="table">
+                            <tbody>
+
+
+                            <p align="center">Hiking is an outdoor activity that is done on foot following a route,
+                                marked or not, alone or in a group. It is both a hobby of discovery and a form of
+                                self-fulfillment, while being an easily accessible and practicable sport.
+                                It contains many activities such as climbing mountains , exploring caves and Canoeing
+                                ...
+                            </p>
+
+
+                            <!-- Grid row -->
+                            <div class="row">
+
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            <!-- Grid row -->
+                            <div class="gallery" id="gallery">
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/mountain.jpg"
+                                         alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/img3.png" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/r16.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/r12.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/r14.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/r15.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            <!-- Grid row -->
+                            <div class="row">
+
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            <!-- Grid row -->
+                            <div class="gallery" id="gallery">
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/r17.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/r18.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/r19.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/r20.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <img class="img-fluid img2" src="../../../assets/img/r21.jpg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 1">
+                                    <img class="img-fluid img2" src="../../../assets/img/r22.jpeg" alt="Card image cap">
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+
+                            <script>
+
+                                $(function () {
+                                    var selectedClass = "";
+                                    $(".filter").click(function () {
+                                        selectedClass = $(this).attr("data-rel");
+                                        $("#gallery").fadeTo(100, 0.1);
+                                        $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+                                        setTimeout(function () {
+                                            $("." + selectedClass).fadeIn().addClass('animation');
+                                            $("#gallery").fadeTo(300, 1);
+                                        }, 300);
+                                    });
+                                });
+
+
+                            </script>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="tab-pane" id="settings1">
+                        <table class="table">
+                            <tbody>
+
+                            <!--
+
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                                                        </div>
+
+
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item " src="../../../assets/img/v1.mp4"></iframe>
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item " src="../../../assets/img/v1.mp4 "></iframe>
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item " src=" ../../../assets/img/v1.mp4"></iframe>
+                                                        </div>
+                            -->
+
+                            <!-- Grid row -->
+                            <div class="row">
+
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            <!-- Grid row -->
+                            <div class="gallery" id="gallery">
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v3.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v10.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v6.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v7.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v8.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="mb-3 pics animation all 2">
+                                    <iframe class="img-fluid img2" src="../../../assets/img/v9.mp4"
+                                            alt="Card image cap"></iframe>
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

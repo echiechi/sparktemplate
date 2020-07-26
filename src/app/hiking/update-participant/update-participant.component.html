@@ -1,0 +1,53 @@
+<a class=" pull-right" routerLink="/hiking/home">Home page</a>
+
+
+<div class="row card-body">
+    <div class="col-lg-4 col-md-4">
+        <div class="card">
+
+
+            <div class="card-body">
+                <div class="tab-content">
+                    <div>
+
+
+                        <div class="form-group col-md-12">
+                            <label>First Name : </label>
+                            <input type="text" class="form-control" [(ngModel)]="participant.firstName">
+
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Last Name :</label>
+                            <input type="text" class="form-control" [(ngModel)]="participant.lastName">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label>Age :</label>
+                            <input type="number" class="form-control" [(ngModel)]="participant.age">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label> Phone : </label>
+                            <input type="text" class="form-control" [(ngModel)]="participant.phone">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label> Name Event : </label>
+                            <input type="text" class="form-control" [(ngModel)]="participant.nameEvent">
+                        </div>
+
+
+                        <div>
+                            <button type="button" (click)="updateParticipant()" class="btn btn-info marge pull-right"
+                                    size="lg"> Save
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
