@@ -1,0 +1,15 @@
+
+.checked {
+    color:gold;
+  }
+
+div.container {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle }
+
+    .md-unstyled-image img{
+      max-width: 100%;
+      width: auto;
+      height: auto !important; /* needs to be important because md-card also sets it that way */
+    } 

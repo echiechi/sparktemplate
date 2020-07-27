@@ -4,18 +4,22 @@
         <p class="card-category">Shop name here</p>
     </div>
     <div class="card-body">
-        <form>
+<<<<<<< HEAD
+=======
+        <form (ngSubmit)="onSubmit()" #shopForm="ngForm">
+>>>>>>> 66dedcd879e3ae746ed8efe7924fc84ef3989d69
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Shop Name">
+                        <input matInput placeholder="Shop Name" [(ngModel)]="shop.name" name="name" #name="ngModel">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Shop Type" type="text">
+                        <input matInput placeholder="Shop Description" type="text" [(ngModel)]="shop.description" name="description"
+                            #type="ngModel">
                     </mat-form-field>
                 </div>
             </div>
@@ -23,8 +27,8 @@
                 <div class="col-md-3">
                     <mat-form-field>
                         <mat-label>Shop worker</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let user of ['wassim','omar','chedly']" [value]="user">
+                        <mat-select [(ngModel)]="userId" name="user" #user="ngModel">
+                            <mat-option *ngFor="let user of ['wassim']" [value]="1">
                                 {{user}}
                             </mat-option>
                         </mat-select>
@@ -34,12 +38,14 @@
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="City" type="text">
+                        <input matInput placeholder="City" type="text" [(ngModel)]="shop.city" name="city"
+                            #city="ngModel">
                     </mat-form-field>
                 </div>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Country" type="text">
+                        <input matInput placeholder="Country" type="text" [(ngModel)]="shop.country" name="country"
+                            #country="ngModel">
                     </mat-form-field>
                 </div>
             </div>
@@ -53,7 +59,7 @@
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
+                            aria-describedby="inputGroupFileAddon01" (change)="setFile($event)">
                         <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
                             <a>Upload image</a></label>
                     </div>
@@ -63,7 +69,8 @@
                 <div class="col-md-6">
                     <label>Search Key Words</label>
                     <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Tunisian Shop"></textarea>
+                        <textarea matInput placeholder="Tunisian Shop" [(ngModel)]="shop.keyWords" name="keyWords"
+                            #keyWords="ngModel"></textarea>
                     </mat-form-field>
                 </div>
             </div>

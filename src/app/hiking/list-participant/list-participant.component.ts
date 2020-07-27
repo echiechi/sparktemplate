@@ -12,4 +12,5 @@ export class ListParticipantComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

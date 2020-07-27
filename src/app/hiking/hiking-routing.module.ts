@@ -40,3 +40,4 @@ path : 'home',
   exports: [RouterModule]
 })
 export class HikingRoutingModule { }
+

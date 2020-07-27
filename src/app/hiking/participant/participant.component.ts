@@ -45,6 +45,9 @@ export class ParticipantComponent implements OnInit {
 
       deleteParticipant(id: number){
         this.eventService.deleteParticipant(id).subscribe((res: Participant[]) => this.listparticipant = res);
+        alert('Participant deleted');
+
       }
 
 }
+

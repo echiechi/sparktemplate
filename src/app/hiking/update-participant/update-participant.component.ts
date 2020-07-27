@@ -33,5 +33,7 @@ updateParticipant() {
  */
     updateParticipant() {
       this.eventService.updateParticipant(this.participant).subscribe(res=>console.log(res));
+        alert('Participant updated');
     }
 }
+

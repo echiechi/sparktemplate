@@ -21,6 +21,7 @@ export class EventComponent implements OnInit {
 
     sendEvent() {
         this.eventService.addEvent(this.event).subscribe(res => console.log(res));
+        alert('Event added')
     }
     setFile(changeEvent: any) {
         this.image = changeEvent.target.files[0];
@@ -33,5 +34,6 @@ export class EventComponent implements OnInit {
        });
 
     }
+
 
 }

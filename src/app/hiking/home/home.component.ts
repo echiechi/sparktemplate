@@ -24,18 +24,22 @@ export class HomeComponent implements OnInit {
             console.log("hello" + this.eventService)
         });
     }
-/*
-    setFile(changeEvent: any) {
-        this.image = changeEvent.target.files[0];
-    }
-*/
 
-    deleteEvent(id: number){
+    /*
+        setFile(changeEvent: any) {
+            this.image = changeEvent.target.files[0];
+        }
+    */
 
-       /* this.eventService.deleteEvent(id).subscribe((res=> console.log(res)); */
+    deleteEvent(id: number) {
+
+        /* this.eventService.deleteEvent(id).subscribe((res=> console.log(res)); */
 
         this.eventService.deleteEvent(id).subscribe((res: Event[]) => this.listevent = res);
-
+        alert('Event deleted ')
     }
+
     /*this.eventService.updateParticipant(this.participant).subscribe(res=>console.log(res));*/
+
 }
+
