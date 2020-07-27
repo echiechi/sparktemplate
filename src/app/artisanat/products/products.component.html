@@ -6,41 +6,28 @@
                     <h4 class="card-title">Search For Products</h4>
                 </div>
                 <div class="card-body">
-                    <div style="padding: 10px;">
-                        Popular products
-                    </div>
-                    <div style="padding: 10px;">Number of Likes: <i class="material-icons heartIcon">
-                            favorite</i>
-                        <i class="material-icons heartIcon" *ngFor="let i of [1,2,3,4]">
-                            favorite_border</i></div>
-                    <div style="padding: 10px;">
-                        Popular Type
+                    <div>
+                        <input mat-input (keyup)="search($event, inp)" #inp>
                     </div>
                     <div style="padding: 10px;">
-                        <mat-form-field>
-                            <mat-label>Types</mat-label>
-                            <mat-select>
-                                <mat-option *ngFor="let food of ['l','b','c']" [value]="food">
-                                    {{food}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        Number of Likes
+                    </div>
+                    <div>
+                      {{ likesFilter }}  <mat-slider value="0" [max]="maxLikes" step="1" (change)="updateLikes($event)"></mat-slider>
+                        {{ maxLikes }}
                     </div>
                     <div style="padding: 10px;">
                         Price
                     </div>
                     <div style="padding: 10px;">
-                        <mat-slider></mat-slider>251 DT
+                        {{ priceFilter }} <mat-slider value="0" [max]="maxPrice" step="1" (change)="updatePrice($event)"></mat-slider>
+                        {{ maxPrice }} DT
                     </div>
-                    <div>
-                        Location
-                    </div>
-                    <div id="map"></div>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
-            <app-product-card></app-product-card>
+            <app-product-card *ngFor="let p of productsFilter" [product]="p"></app-product-card>
         </div>
     </div>
 </div>

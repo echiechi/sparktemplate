@@ -37,7 +37,7 @@ export class AddPostComponent implements OnInit {
     formData.append('city',f.city);
     formData.append('userId',userId);
 
-        let response =await fetch('http://127.0.0.1:8001/post/new/image',{
+        let response =await fetch('http://127.0.0.1:8000/post/new/image',{
           method: 'POST',
           body: formData
         });

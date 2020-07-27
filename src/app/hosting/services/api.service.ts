@@ -11,7 +11,7 @@ import { Post } from '../models/Post';
 })
 export class ApiService {
 
-  private apiServer = 'http://127.0.0.1:8000';
+  private apiServer = "http://127.0.0.1:8000";
 image;
   // httpOptions = {
   //   headers: new HttpHeaders({
