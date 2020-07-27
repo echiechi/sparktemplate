@@ -11,11 +11,11 @@ export class ServiceService {
     }
 
     getAllUsers() {
-        return this.http.get<Array<User>>('http://127.0.0.1:8000/user/getAll');
+        return this.http.get<Array<User>>('http://127.0.0.1:8000/Dashborad/user/getAll');
     }
 
     delete(id) {
-        return this.http.post<any>('http://127.0.0.1:8000/user/delete/' + id,
+        return this.http.post<any>('http://127.0.0.1:8000/Dashborad/user/delete/' + id,
             {});
     }
 }

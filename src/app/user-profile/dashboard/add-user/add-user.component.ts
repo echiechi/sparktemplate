@@ -17,6 +17,7 @@ export class AddUserComponent implements OnInit {
   password;
   roles;
   confirmPassword;
+  result;
   constructor() { }
 
   ngOnInit(): void {
@@ -34,12 +35,12 @@ export class AddUserComponent implements OnInit {
     // formData.append('confirmPassword', this.form.get('confirmPassword').value);
     formData.append('avatar', this.image);
 
-    let response = await fetch('http://127.0.0.1:8000/user/add', {
+    let response = await fetch('http://127.0.0.1:8000/Dashborad/user/add', {
       method: 'POST',
       body: formData
     });
-    let result = await response.json();
-    console.log(result);
+    this.result = await response.json();
+    console.log(this.result);
   }
 
 

@@ -1,58 +1,41 @@
 <div class="container">
     <div class="card">
         <div class="card-header card-header-danger">
-            <h4 class="card-title">Inscription</h4>
+            <h4 class="card-title">Update</h4>
         </div>
         <div class="card-body">
             <form  #f="ngForm">
                 <div class="row">
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput class="form-control" placeholder="Your Name" name="nom" required [(ngModel)]="nom" value="{{userConnected.nom}}">
+                            <input matInput class="form-control" placeholder="Name" name="nom" required [(ngModel)]="nom" >
                         </mat-form-field>
                     </div>
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput class="form-control" placeholder="Your Lastname" type="text" name="prenom" required [(ngModel)]="prenom" value="{{userConnected.prenom}}">
+                            <input matInput class="form-control" placeholder="Lastname" type="text" name="prenom" required [(ngModel)]="prenom" >
                         </mat-form-field>
                     </div>
                     <div class="col-4">
                         <mat-form-field class="example-full-width">
-                            <input matInput class="form-control" placeholder="Email" type="text" name="email" required [(ngModel)]="email" value="{{userConnected.email}}">
+                            <input matInput class="form-control" placeholder="Email" type="text" name="email" required [(ngModel)]="email" >
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <mat-form-field class="example-full-width">
-                            <input matInput class="form-control" placeholder="password" type="password"  name="password" required [(ngModel)]="password" >
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                        <mat-form-field class="example-full-width">
-                            <input matInput class="form-control" placeholder="Old Password" type="password"  name="confirmPassword" required [(ngModel)]="confirmPassword" >
-                        </mat-form-field>
-                    </div>
+                    <select  name="roles" required [(ngModel)]="roles">
+                        <option value="">--------</option>
+                        <option value="ROLE_USER">Role User</option>
+                        <option value="ROLE_SUPER_ADMIN">Role Super Admin</option>
+                    </select>
                 </div>
                 <div class="row">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupFileAddon01">
-                                <i class="material-icons">
-                                    cloud_upload</i>
-                            </span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                   aria-describedby="inputGroupFileAddon01" (change)="uploadFile($event)">
-                            <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
-                                <a>Upload image</a></label>
-                        </div>
-                    </div>
+                    <span>Would you like to delete the photo?</span>
+                    <input type="checkbox" name="avatar" [(ngModel)]="image">
                 </div>
                 <div class="clearfix"></div>
             </form>
-            <button mat-raised-button (click)="savePost(f.value)" class="btn btn-danger pull-right">Inscription</button>
+            <button mat-raised-button (click)="update(f.value)" class="btn btn-danger pull-right">update</button>
 
         </div>
     </div>

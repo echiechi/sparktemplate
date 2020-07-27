@@ -14,6 +14,7 @@ export class CarteComponent implements OnInit {
     @Input() email: string;
     @Input() avatar: string;
     @Input() id: number;
+    error;
 
     constructor(private service: ServiceService) {
     }
@@ -25,9 +26,16 @@ export class CarteComponent implements OnInit {
         const confirm = prompt('do you confirm delete this user inter yes to continue');
         if (confirm === 'yes') {
             this.service.delete(id).subscribe((response: any) => {
-                alert(response.data);
-                window.location.reload();
-            });
+                    alert(response.data);
+                    window.location.reload();
+                }, error => {
+                    if (error.status === 401) {
+                        console.log(error)
+                        this.error = error.error.error;
+
+                    }
+                }
+            );
         }
     }
 

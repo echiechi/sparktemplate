@@ -14,7 +14,6 @@ import {SpearfishComponent} from './spearfish/spearfish.component';
 import {AppComponent} from './app.component';
 import {WsocketService} from './service/wsocket.service';
 
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {TableListComponent} from './table-list/table-list.component';
 import {TypographyComponent} from './typography/typography.component';
 import {IconsComponent} from './icons/icons.component';
@@ -27,6 +26,7 @@ import {
 } from '@agm/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -51,6 +51,7 @@ import { UpdateComponent } from './user-profile/inscription/update/update.compon
 import { UpdateUserDashComponent } from './user-profile/dashboard/update-user-dash/update-user-dash.component';
 import { AddEventComponent } from './cultural-and-historic-sites/add-event/add-event.component';
 import { DashComponent } from './cultural-and-historic-sites/dash/dash.component';
+import { DashboardComponent} from './user-profile/dashboard/dashboard.component';
 
 
 @NgModule({
