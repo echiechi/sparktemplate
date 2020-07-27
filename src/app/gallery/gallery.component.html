@@ -1,0 +1,279 @@
+<!--Carousel Wrapper-->
+
+
+<div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+    <!--Controls-->
+    <div class="controls-top">
+
+        <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+    <!--/.Controls-->
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(19).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(42).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(8).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+        </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+            <div class="col-md-3 mb-3" *ngFor="let g of galleries">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="http://127.0.0.1:8000/geimg/{{g.imagePath}}"
+                         alt="Card image cap" >
+                </div>
+            </div>
+
+         <!--   <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(26).jpg"
+                         alt="Card image cap">
+                </div>
+            </div> -->
+
+        </div>
+        <!--/.Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(64).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(51).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(59).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img class="img-fluid"
+                         src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(63).jpg"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+        </div>
+        <!--/.Third slide-->
+
+    </div>
+    <!--/.Slides-->
+
+</div>
+<!--/.Carousel Wrapper-->
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading -->
+    <h1 class="my-4">Upload your best catches pictures
+        <small></small>
+    </h1>
+
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="http://127.0.0.1:8000/geimg/djerba.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>Spot a Cap Negro</h3>
+            <p>De Nefza, vous prenez la direction de Bizerte sur une dizaine de km vous trouverez un panneau indiquant «
+                Cap Negro ». Engagez vous sur cette petite route sur 2 km qui aboutit sur une piste difficile,
+                rocailleuse et parfois étroite qui vous mènera jusqu’à destination.</p>
+            <a class="btn btn-primary" href="https://tunisie.co/article/6578/region/nord/cap-negro-074512">More</a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+    <!-- Project Two -->
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AO04ivXyEYU"
+                            allow="encrypted-media"></iframe>
+                    <!-- "https://www.youtube.com/embed/AO04ivXyEYU" -->
+                </div>
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>Chasse sous marine a bizerte</h3>
+            <p>La chasse du mérou est interdite en Tunisie. Cela dit les eaux de Bizerte sont poissonneuses, les fonds
+                sont très beaux et la visibilité est souvent bonne. Pas besoin de descendre à des profondeurs extrêmes,
+                a moins de dix mètre il est possible d’avoir de belles prises.</p>
+            <a class="btn btn-primary" href="https://www.facebook.com/sargospearfishing/">More</a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+
+    <!-- Project Four -->
+    <div class="row">
+
+        <div class="col-md-7">
+            <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="http://127.0.0.1:8000/geimg/kelibia.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>Thon a Kelibia</h3>
+            <p>Très belle prise a Kelibia par Mr Ghassen Hadded, un magnifique Thon, beau spécimen de ce qu'on peut
+                trouver dans les eau de Haouaria. Faite cependant très attention avec ce genre de proies, etrémement
+                vigoureuses, elles peuvent vous entrainer sur des dixaines de mètres si elles ne sont pas atteintes
+                lethalement</p>
+            <a class="btn btn-primary" href="https://infocapagde.com/article.php?sid=1863">More</a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="form-group form-file-upload form-file-simple">
+                <input #fileInput type="file" class="inputFileHidden" (change)="uploadFile($event)">
+                <div class="input-group">
+                    <input  type="text" class="form-control inputFileVisible" placeholder="Single File">
+                    <span class="input-group-btn">
+            <button type="button" class="btn btn-fab btn-round btn-primary" (click)="fileInput.click()">
+                <i class="material-icons">attach_file</i>
+            </button>
+        </span>
+                </div>
+            </div>
+            <!--       <input type="file" (change)="uploadFile($event)" > -->
+
+            <div class="form-group input-group-lg">
+                <input class="form-control" placeholder="title" formControlName="imageTitle" id="timageTitle">
+            </div>
+            <div class="form-group input-group-lg">
+                <input class="form-control" placeholder="user id" formControlName="userId" id="userId">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-danger btn-block btn-lg">Create</button>
+            </div>
+
+        </form>
+    </div>
+
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+<!-- /.container -->

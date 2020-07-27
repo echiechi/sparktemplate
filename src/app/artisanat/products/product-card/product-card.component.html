@@ -9,7 +9,7 @@
             </div>
             <div class="row full-height" align="center">
                 <div class="col-md-6 small-line">
-                    <h5><a [routerLink]="'/artisanat/frontshop/'+product.id">{{ product.shop.name }}</a></h5>
+                    <h5><a [routerLink]="'/artisanat/frontshop/'+product.shop.id">{{ product.shop.name }}</a></h5>
                     <h2>{{product.product.unitPrice}} DT</h2>
                     <button mat-stroked-button color="primary" (click)="addToProducts(product.product, product.quantity)"style="width: 95%;">
                         <i class="material-icons" style="margin-right: 15px;">

@@ -12,11 +12,14 @@ export class NewProductComponent implements OnInit {
   stock = new Stock();
   image;
   uploadText = 'Upload an image';
-
+  shopId;
   constructor(private productService: ProductService,
     private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.shopId = params.id
+    })
     this.activatedRoute.paramMap.subscribe(res => {
       if (res['params'].porduct)
         this.productService.getProdcutById(res['params'].porduct).subscribe((stock: any) => {
@@ -34,7 +37,7 @@ export class NewProductComponent implements OnInit {
     let formData: FormData = new FormData();
 
     formData.append('file', this.image);
-    formData.append('shopId', '1');
+    formData.append('shopId', this.shopId+'');
     formData.append('name', this.stock.product.name);
     formData.append('description', this.stock.product.description);
     formData.append('type', this.stock.product.type);
@@ -43,8 +46,7 @@ export class NewProductComponent implements OnInit {
     formData.append('quantity', this.stock.quantity);
     this.productService.sendProdcut(formData)
       .subscribe(result => {
-        console.log(result);
-        this.router.navigateByUrl('/artisanat/myShop/1/products');
+        this.router.navigateByUrl('/artisanat/myShop/'+ this.shopId +'/products');
       });
   }
 

@@ -4,6 +4,7 @@ import { CartService } from 'app/artisanat/services/cart.service';
 import { CartEntry } from '../../models/Cart';
 import { ProductService } from 'app/artisanat/services/product.service';
 import { NotifService } from 'app/artisanat/services/notif.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -14,20 +15,24 @@ export class ProductCardComponent implements OnInit, OnChanges {
 
   @Input() product: Stock;
 
+  shopId ;
   constructor(private cartService: CartService,
     private productService: ProductService,
-    private notif: NotifService) { }
+    private notif: NotifService,
+    private router : ActivatedRoute) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     //console.log(this.product);
+   
+
   }
 
   ngOnInit(): void {
+
   }
 
   addToProducts(product, maxQuantity) {
     let productsList = this.cartService.cart.value;
-    console.log(productsList);
     let isProductInCart = productsList.find(x => x.product.id === product.id);
     if (isProductInCart) {
       isProductInCart.quantity++;

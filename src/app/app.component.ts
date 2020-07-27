@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ShopService } from './artisanat/services/shop.service';
 
 @Component({
   selector: 'app-root',

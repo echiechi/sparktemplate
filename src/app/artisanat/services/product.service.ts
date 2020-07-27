@@ -14,7 +14,7 @@ export class ProductService {
   }
 
   getProducts() {
-    return this.http.get('http://127.0.0.1:8000/stock');
+    return this.http.get('http://127.0.0.1:8000/stock/');
   }
 
   getProdcutById(id: string) {
@@ -31,5 +31,9 @@ export class ProductService {
 
   getMaxPrice() {
     return this.http.get('http://127.0.0.1:8000/stock/max/price');
+  }
+
+  getProductsByShop(id){
+    return this.http.get('http://127.0.0.1:8000/stock/shop/'+id);
   }
 }

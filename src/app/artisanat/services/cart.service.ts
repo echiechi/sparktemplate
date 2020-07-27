@@ -20,4 +20,8 @@ export class CartService {
   placeOrder(order: Order[]) {
     return this.http.post('http://127.0.0.1:8000/productorder/new', order);
   }
+
+  getMyOrders(id){
+    return this.http.get('http://127.0.0.1:8000/productorder/user/' +id);
+  }
 }

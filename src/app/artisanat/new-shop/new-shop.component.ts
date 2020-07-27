@@ -14,7 +14,7 @@ export class NewShopComponent implements OnInit {
   userId: number;
   isEdit = false;
   image: File;
-  
+
   constructor(private shopService: ShopService,
     private router: ActivatedRoute,
     private notifService: NotifService) { }
@@ -31,9 +31,10 @@ export class NewShopComponent implements OnInit {
 
   onSubmit() {
     let formData: FormData = new FormData();
+    let user = JSON.parse(localStorage.getItem('currentUser'));
     formData.append('id', '' + this.shop.id);
     formData.append('file', this.image);
-    formData.append('userid', '1');
+    formData.append('userid', user.id + '');
     formData.append('name', this.shop.name);
     formData.append('description', this.shop.description);
     formData.append('keyWords', this.shop.keyWords);

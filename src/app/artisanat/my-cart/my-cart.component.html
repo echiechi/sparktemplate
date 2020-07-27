@@ -15,7 +15,8 @@
                 <td>{{ i.product.name }}</td>
                 <td>{{ i.product.unitPrice }}</td>
                 <td>
-                    {{ i.quantity }} <mat-slider min="1" [max]="i.maxQuantity" step="1" [value]="i.quantity" (change)="updateQuantity(i, $event)">
+                    {{ i.quantity }} <mat-slider min="1" [max]="i.maxQuantity" step="1" [value]="i.quantity"
+                        (change)="updateQuantity(i, $event)">
                     </mat-slider> max {{ i.maxQuantity }}
                 </td>
                 <td>
@@ -41,6 +42,22 @@
                         Buy
                     </button>
                 </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>My Orders</h4>
+    <table class="table table-hover">
+        <thead class="text-warning">
+            <th>Delivery status</th>
+            <th>Order</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of orders">
+                <td><a>{{ i.status}}</a></td>
+                <td>{{ i.product.name}}</td>
+                <td>{{ i.quantity}}</td>
             </tr>
         </tbody>
     </table>

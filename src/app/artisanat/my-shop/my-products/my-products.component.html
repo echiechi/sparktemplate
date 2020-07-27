@@ -1,5 +1,5 @@
 <h3>Stock</h3>
-<button mat-button color="warn" routerLink="/artisanat/myShop/1/newproduct">Add Product</button>
+<button mat-button color="warn" [routerLink]="'/artisanat/myShop/'+shopId+'/newproduct'">Add Product</button>
 <div style="height: 70vh;overflow: auto;">
     <table class="table table-hover">
         <thead class=" text-warning">
@@ -19,7 +19,7 @@
                 <td> {{ p.product.likes }}</td>
                 <td>
                     <a mat-button  color="warn" > Delete </a>
-                    <button mat-button [routerLink]="'/artisanat/myShop/1/editproduct/'+ p.id"> Edit
+                    <button mat-button [routerLink]="'/artisanat/myShop/'+shopId+'/editproduct/'+ p.id"> Edit
                     </button></td>
             </tr>
         </tbody>

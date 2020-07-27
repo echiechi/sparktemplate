@@ -1,0 +1,121 @@
+<div class="col-lg-5 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-tabs card-header-info">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title">Tasks:</span>
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                            <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                <i class="material-icons">search</i> Find fish
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                <i class="material-icons">event_note</i> EVENTS
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                <i class="material-icons">add_circle</i> CREATE EVENT
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                    <div class="card-body table-responsive" style="overflow-x: hidden">
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="messages">
+
+                </div>
+                <div class="tab-pane" id="settings">
+
+                    <form  [formGroup]="form" (ngSubmit)="submitForm()">
+                        <div class="form-row">
+                            <div class="col-md-3 mb-3">
+                                <label for="validationTooltip01">Fish name</label>
+                                <input type="text" class="form-control" id="validationTooltip01"
+                                       placeholder=""
+                                       [(ngModel)]="fish.idFish" required name="idFish" formControlName="idFish" >
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationTooltip02">Season</label>
+                                <input type="text" class="form-control" id="validationTooltip02"
+                                       placeholder="" required [(ngModel)]="fish.season"
+                                       name="season" formControlName="season" >
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationTooltip03">Depth</label>
+                                <input type="number" class="form-control" id="validationTooltip03" formControlName="minDepth" min="0"
+                                       max="25"
+                                       required [(ngModel)]="fish.minDepth" name="minDepth">
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationTooltip04">Fish size</label>
+                                <input type="text" class="form-control" formControlName="size" id="validationTooltip04"
+                                       required [(ngModel)]="fish.size" name="size">
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip05">Fish description</label>
+                                <textarea class="form-control" id="validationTooltip05" rows="3"
+                                          placeholder=""
+                                          required [(ngModel)]="fish.fishDescription" name="location" formControlName="fishDescription" ></textarea>
+
+                                <div class="invalid-tooltip">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+
+
+                                <div class="form-group form-file-upload form-file-simple"
+                                     style="padding-top: 7px">
+                                    <input #fileInput type="file" class="inputFileHidden"
+                                           (change)="uploadFile($event)" id="fishImage">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control inputFileVisible"
+                                               placeholder="Fish image">
+                                        <span class="input-group-btn">
+            <button type="button" class="btn btn-fab btn-round btn-primary" (click)="fileInput.click()">
+                <i class="material-icons">attach_file</i>
+            </button>
+        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit" >
+                            Submit
+                            event
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
