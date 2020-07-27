@@ -3,6 +3,7 @@ import {ROUTES} from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {Router} from '@angular/router';
 import {LoginService} from '../../user-profile/login/services/login.service';
+import {User} from '../../user-profile/login/model/user';
 
 @Component({
     selector: 'app-navbar',
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     @Output() connected: boolean;
+    userConnected: User;
 
     constructor(location: Location, private element: ElementRef, private router: Router, private loginService: LoginService) {
         this.location = location;
@@ -26,6 +28,8 @@ export class NavbarComponent implements OnInit {
         this.loginService.loginNotif.subscribe(x => {
             if (localStorage.getItem('currentUser') != null) {
                 this.connected = true;
+                const str: string = localStorage.getItem('currentUser');
+                this.userConnected = JSON.parse(str);
             } else {
                 this.connected = false;
             }
@@ -133,6 +137,7 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+
     logout() {
         localStorage.removeItem('currentUser')
         this.loginService.loginNotif.next(false)
