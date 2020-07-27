@@ -113,6 +113,9 @@
                             <a class="dropdown-item" routerLink="/Update-profile">Profile</a>
                             <a class="dropdown-item" *ngIf="shop" routerLink="/artisanat/myShop/{{shop}}">My Shop</a>
                             <a class="dropdown-item" routerLink="/hosting/myposts/{{userConnected.id}}">My Posts</a>
+                            <a class="dropdown-item" routerLink="/hosting/myposts">My Properties</a>
+                            <a class="dropdown-item" routerLink="/hosting/mybookings">My Bookings</a>
+                            <a class="dropdown-item" routerLink="/hosting/Reservations">Reservation requests</a>
                             <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
                             <a class="dropdown-item" (click)="logout()">Logout</a>
                         </div>
