@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist  from 'chartist';
+import * as Chartist from 'chartist';
 import { ChartingService } from '../services/charting.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-my-shop',
@@ -8,6 +9,7 @@ import { ChartingService } from '../services/charting.service';
   styleUrls: ['./my-shop.component.css']
 })
 export class MyShopComponent implements OnInit {
+  shopId: string;
   cards = [{
     icon: 'attach_money',
     category: 'Revenue',
@@ -27,10 +29,12 @@ export class MyShopComponent implements OnInit {
     secondaryIcon: 'date_range',
     secondaryText: 'Last 24 Hours'
   }];
-  constructor(private chartingService: ChartingService) { }
+  constructor(private chartingService: ChartingService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.router.params.subscribe(params => {
+      this.shopId = params.id
+    })
     const dataDailySalesChart: any = {
       labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
       series: [

@@ -56,7 +56,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="connected">
                     <a class="nav-link" routerLink="/artisanat/cart">
                         <i class="material-icons">shopping_cart</i>
                         <p>
@@ -64,7 +64,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="connected && !shop">
                     <a class="nav-link" routerLink="/artisanat/newShop">
                         <i class="material-icons">add_business</i>
                         <p>
@@ -110,9 +110,16 @@
                             </p>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" routerLink="/Update-profile">Profile</a>
-                            <a class="dropdown-item" routerLink="/artisanat/myShop/{{userConnected.id}}">My Shop</a>
-                            <a class="dropdown-item" routerLink="/hosting/myposts/{{userConnected.id}}">My Posts</a>
+                            <div *ngIf="userConnected.roles[0]==['ROLE_SUPER_ADMIN']">
+                                <a class="dropdown-item" routerLink="/Dashboard">Dashbooard</a>
+                                <a class="dropdown-item" routerLink="/Dashboard/add-user">Dashbooard User as Admin</a>
+                            </div>
+                            <a class="dropdown-item" routerLink="/inscription">Profile</a>
+                            <a class="dropdown-item" routerLink="/artisanat/myShop/1">My Shop</a>
+                            <a class="dropdown-item" routerLink="/hosting/myposts">My Properties</a>
+                            <a class="dropdown-item" routerLink="/hosting/mybookings">My Bookings</a>
+                            <a class="dropdown-item" routerLink="/hosting/Reservations">Reservation requests</a>
+
                             <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
                             <a class="dropdown-item" (click)="logout()">Logout</a>
                         </div>

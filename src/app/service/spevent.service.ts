@@ -19,7 +19,10 @@ export class SpeventService {
         return this.http.post<Spevent>('http://localhost/addspe', spevent);
     }
     getSpeventFromDate() {
-        return this.http.get<Spevent[]>('http://127.0.0.1:8001/gespefrdte');
+        return this.http.get<Spevent[]>('http://127.0.0.1:8000/gespefrdte');
+    }
+    getNbrSpevent() {
+        return this.http.get<[1]>('http://127.0.0.1:8000/gespenbr');
     }
 
 }

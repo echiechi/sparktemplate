@@ -4,6 +4,8 @@
 <div class="row">
     <div class="card col-md-4">
         <button mat-button routerLink="products"> Products Mangement</button>
+        <button mat-button [routerLink]="'/artisanat/myShop/'+shopId+'/orders'"> Order Management</button>
+        <button mat-button [routerLink]="'/artisanat/editShop/'+shopId"> Edit Shop</button>
     </div>
     <div class="col-md-8" style="padding-right: 50px;">
         <div class="row">
@@ -29,36 +31,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="row" style="padding-left: 20px;padding-right: 20px;">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Orders</h4>
-        </div>
-        <div class="card-body">
-            <table class="table table-hover">
-                <thead class="text-warning">
-                    <th>ID</th>
-                    <th>Customer Name</th>
-                    <th>Delivery status</th>
-                    <th>Order</th>
-                    <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let i of [1,2,3]">
-                        <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td><a>Order</a></td>
-                        <td>In progress</td>
-                        <td>
-                            <a mat-button> View </a>
-                            <button mat-button color="warn"> Delete </button>
-                            <button mat-button color="warn"> Change Status </button></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>

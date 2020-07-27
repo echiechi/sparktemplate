@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/Post';
-import { User } from '../../user-profile/login/model/User';
+import { User } from '../../user-profile/login/model/user';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -17,16 +17,15 @@ export class MyPostsComponent implements OnInit {
   posts;
   // private httpClient: HttpClient;
   constructor(private apiservice: ApiService,private route: ActivatedRoute,private router: Router ) { }
+ 
   deletePost(postId): void {
     this.apiservice.deletePost(postId)
       .subscribe( data => {
         this.posts = this.posts.filter(p => p.id !== postId);
       })
   }
-  ngOnInit(): void {
-    
 
-  
+  ngOnInit(): void {
     if (localStorage.getItem('currentUser') != null) {
       //connected 
         const currentUser = JSON.parse(    localStorage.getItem('currentUser'));

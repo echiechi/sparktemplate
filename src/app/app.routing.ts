@@ -19,6 +19,7 @@ import {UpdateComponent} from './user-profile/inscription/update/update.componen
 import {AddEventComponent} from './cultural-and-historic-sites/add-event/add-event.component';
 import {dashCaseToCamelCase} from '@angular/compiler/src/util';
 import {DashComponent} from './cultural-and-historic-sites/dash/dash.component';
+import {UpdateUserDashComponent} from './user-profile/dashboard/update-user-dash/update-user-dash.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,8 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'inscription', component: InscriptionComponent},
     {path: 'Dashboard/add-user', component: AddUserComponent},
+    {path: 'Dashboard/update-user/:id', component: UpdateUserDashComponent},
+    {path: 'Dashboard', component: DashboardComponent},
     {path: 'Update-profile', component: UpdateComponent},
 
 

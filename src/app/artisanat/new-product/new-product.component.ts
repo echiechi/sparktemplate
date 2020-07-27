@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../models/Stock';
 import { ProductService } from '../services/product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -11,10 +11,25 @@ export class NewProductComponent implements OnInit {
 
   stock = new Stock();
   image;
-
-  constructor(private productService: ProductService,private router: Router) { }
+  uploadText = 'Upload an image';
+  shopId;
+  constructor(private productService: ProductService,
+    private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.shopId = params.id
+    })
+    this.activatedRoute.paramMap.subscribe(res => {
+      if (res['params'].porduct)
+        this.productService.getProdcutById(res['params'].porduct).subscribe((stock: any) => {
+          this.stock.id = stock.id;
+          this.stock.product = stock.product;
+          this.stock.quantity = stock.quantity;
+          this.stock.shop = stock.shop;
+        })
+    });
+
   }
 
   submitProduct() {
@@ -22,7 +37,7 @@ export class NewProductComponent implements OnInit {
     let formData: FormData = new FormData();
 
     formData.append('file', this.image);
-    formData.append('shopId', '1');
+    formData.append('shopId', this.shopId+'');
     formData.append('name', this.stock.product.name);
     formData.append('description', this.stock.product.description);
     formData.append('type', this.stock.product.type);
@@ -30,14 +45,15 @@ export class NewProductComponent implements OnInit {
     formData.append('unitPrice', '' + this.stock.product.unitPrice);
     formData.append('quantity', this.stock.quantity);
     this.productService.sendProdcut(formData)
-      .subscribe(result =>{
-        console.log(result);
-        this.router.navigateByUrl('/artisanat/myShop/1/products');
+      .subscribe(result => {
+        this.router.navigateByUrl('/artisanat/myShop/'+ this.shopId +'/products');
       });
   }
 
   setFile(changeEvent: any) {
     this.image = changeEvent.target.files[0];
+    console.log(this.image);
+    this.uploadText = this.image.name;
   }
 
 

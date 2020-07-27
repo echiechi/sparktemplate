@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostCardComponent } from './posts/post-card/post-card.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 const routes: Routes = [
 
@@ -43,7 +45,17 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path: 'myposts/:id',
+    path: 'mybookings',
+    component:MyBookingsComponent,
+    pathMatch:'full'
+  },
+  {
+    path: 'Reservations',
+    component:ReservationsComponent,
+    pathMatch:'full'
+  },
+  {
+    path: 'myposts',
     component:MyPostsComponent,
     pathMatch:'full'
   }

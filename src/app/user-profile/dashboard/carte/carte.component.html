@@ -15,7 +15,7 @@
     <div class="card-footer">
         <div class="stats">
             <button class="btn-danger" (click)="delete(id)">Delete</button>
-            <button class="btn-success ml-5">Update</button>
+            <button class="btn-success ml-5" [routerLink]="'/Dashboard/update-user/'+id">Update</button>
         </div>
     </div>
 </div>

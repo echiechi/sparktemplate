@@ -11,7 +11,7 @@ import { Post } from '../models/Post';
 })
 export class ApiService {
 
-  private apiServer = "http://127.0.0.1:8001";
+  private apiServer = "http://127.0.0.1:8000";
 image;
   // httpOptions = {
   //   headers: new HttpHeaders({
@@ -20,7 +20,14 @@ image;
   // }
 
   constructor(private httpClient: HttpClient) { }
-
+  //return user object if logged in or null if not connected
+  public getCurrentUser(){
+    if (localStorage.getItem('currentUser') != null) {
+      let userjson = localStorage.getItem('currentUser');
+      let user = JSON.parse(userjson);
+      return user;
+    }else return null;
+  }
   //get posts by page default 1
   public getPosts(page){
     return this.httpClient.get(this.apiServer+"/post/"+"p="+page);
@@ -64,6 +71,9 @@ image;
     }
 
   //update  user(owner) posts
+  public updatePost(postId){
+    return this.httpClient.get(this.apiServer+"/post/update/"+postId);
+  }
   // public updatePost(post){
   //   return this.httpClient.post(this.apiServer+"/post/update/"+postId,post);
   // }
@@ -78,6 +88,12 @@ image;
   //confirm resrevation
   public confirmReservation(reservationID){
     return this.httpClient.get(this.apiServer+"/post/confirm/"+reservationID);
+  }
+  public getMyBookings(guestId){
+    return this.httpClient.get(this.apiServer+"/reservation/mybookings/"+guestId);
+  }
+  public getOwnerReservatinos(userId){
+    return this.httpClient.get(this.apiServer+"/reservation/owner/reservations/"+userId);
   }
   // @Route("/new", name="post_new")
 // @Route("/update/{id}", name="posts_update")
@@ -94,10 +110,5 @@ image;
 //post/reserve/:id/:start-date/:end-date
 //post/confirm-reservation/:id
 //post/myresrvations
-
-
-
-
-
 
 }

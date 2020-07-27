@@ -4,10 +4,7 @@
         <p class="card-category">Shop name here</p>
     </div>
     <div class="card-body">
-<<<<<<< HEAD
-=======
-        <form (ngSubmit)="onSubmit()" #shopForm="ngForm">
->>>>>>> 66dedcd879e3ae746ed8efe7924fc84ef3989d69
+        <form  #shopForm="ngForm">
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
@@ -20,18 +17,6 @@
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Shop Description" type="text" [(ngModel)]="shop.description" name="description"
                             #type="ngModel">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <mat-form-field>
-                        <mat-label>Shop worker</mat-label>
-                        <mat-select [(ngModel)]="userId" name="user" #user="ngModel">
-                            <mat-option *ngFor="let user of ['wassim']" [value]="1">
-                                {{user}}
-                            </mat-option>
-                        </mat-select>
                     </mat-form-field>
                 </div>
             </div>
@@ -61,7 +46,7 @@
                         <input type="file" class="custom-file-input" id="inputGroupFile01"
                             aria-describedby="inputGroupFileAddon01" (change)="setFile($event)">
                         <label class="custom-file-label" style="color : blue" for="inputGroupFile01">
-                            <a>Upload image</a></label>
+                            <a>{{ shop.imageName }}</a></label>
                     </div>
                 </div>
             </div>
@@ -74,7 +59,9 @@
                     </mat-form-field>
                 </div>
             </div>
-            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Shop</button>
+            <button mat-raised-button (click)="onSubmit()" class="btn btn-danger pull-right">Save Shop</button>
+            <button mat-raised-button (click)="delete()" class="btn btn-danger pull-right">delete</button>
+
             <div class="clearfix"></div>
         </form>
     </div>

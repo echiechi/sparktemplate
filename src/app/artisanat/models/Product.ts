@@ -6,4 +6,5 @@ export class Product {
     unitPrice: number;
     type: string;
     city: string;
+    likes : number
 }

@@ -21,7 +21,7 @@ export class PostsComponent implements OnInit {
     //   // return  data;
     // });
 
-    // this.httpClient.get("http://127.0.0.1:8001/post/").subscribe((data)=>{
+    // this.httpClient.get("http://127.0.0.1:8000/post/").subscribe((data)=>{
     //   console.log(data);
     //   this.posts = data;
     // });
