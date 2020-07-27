@@ -93,9 +93,9 @@ export class SpearfishComponent implements OnInit {
         setTimeout(() => {
             this.scrollDown()
         }, 10000);
-        this.userService.getAllUsers().subscribe(
+     /*   this.userService.getAllUsers().subscribe(
             (data2: User[]) => this.users = data2
-        );
+        ); */
         this.users = this.webSocket.users;
         this.userId = this.webSocket.userId;
         this.user = this.webSocket.userName2;

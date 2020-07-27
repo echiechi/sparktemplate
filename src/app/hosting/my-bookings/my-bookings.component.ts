@@ -9,35 +9,28 @@ import {ApiService} from '../services/api.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-my-posts',
-  templateUrl: './my-posts.component.html',
-  styleUrls: ['./my-posts.component.css']
+  selector: 'app-my-bookings',
+  templateUrl: './my-bookings.component.html',
+  styleUrls: ['./my-bookings.component.css']
 })
-export class MyPostsComponent implements OnInit {
-  posts;
-  // private httpClient: HttpClient;
+export class MyBookingsComponent implements OnInit {
+  posts;rows;
   constructor(private apiservice: ApiService,private route: ActivatedRoute,private router: Router ) { }
  
-  deletePost(postId): void {
-    this.apiservice.deletePost(postId)
-      .subscribe( data => {
-        this.posts = this.posts.filter(p => p.id !== postId);
-      })
-  }
 
   ngOnInit(): void {
     if (localStorage.getItem('currentUser') != null) {
       //connected 
-        const currentUser = JSON.parse(    localStorage.getItem('currentUser'));
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
         //, JSON.stringify(this.userLoged)
         console.log(currentUser);
         console.log(currentUser.id);
                     //params.id
         this.route.params.subscribe(params => {      
-          this.apiservice.getMyPosts(currentUser.id,1).subscribe((data)=>{
+          this.apiservice.getMyBookings(currentUser.id).subscribe((data)=>{
             console.log(data);
-          this.posts = data;
+          this.rows = data;
             // return  data;
           });
         });

@@ -14,6 +14,6 @@ export class UserService {
   }
 
   getAllUsers() {
-    return this.http.get<User[]>('http://127.0.0.1:8000/user/getAll')
+    return this.http.get<User[]>('http://127.0.0.1:8000/user/findAll')
   }
 }

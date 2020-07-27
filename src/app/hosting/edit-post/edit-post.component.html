@@ -4,7 +4,20 @@
         <p class="card-category"></p>
     </div>
     <div class="card-body">
-        <form (ngSubmit)="onSubmit()">
+
+          <!-- <div class="col-md-4">
+              <button mat-raised-button class="btn btn-danger btn-block" (click)="notifier.showNotification('top','left')">Top Left</button>
+           </div>
+           <div class="col-md-4">
+              <button mat-raised-button class="btn btn-danger btn-block" (click)="notifier.showNotification('top','center')">Top Center</button>
+           </div>
+           <div class="col-md-4">
+             <button mat-raised-button class="btn btn-danger btn-block" (click)="notifier.showNotification('top','right')">Top Right</button>
+          </div>
+ -->
+    <img [src]="'http://127.0.0.1:8001/img/'+post.postImage" width="300px">
+
+        <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
            <input  name="id"  type="hidden"  [(ngModel)]="post.id"> 
             <div class="row">
                 <div class="col-md-3">
@@ -18,14 +31,14 @@
                     <mat-form-field class="example-full-width">
 
                         <mat-label>Leave your post</mat-label>
-                        <textarea  name="description"  [(ngModel)]="post.description" name="description" matInput placeholder="">{{post.description}}</textarea>                    </mat-form-field>
+                        <textarea rows="5"  name="description"  [(ngModel)]="post.postDescription" name="description" matInput placeholder="">{{post.description}}</textarea>                    </mat-form-field>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                        <input  name="city"  matInput placeholder="City" [(ngModel)]="post.city" name="city" type="text" value="post.city">
+                        <input  name="city"  matInput placeholder="City" [(ngModel)]="post.postCityName" name="city" type="text" value="post.city">
                     </mat-form-field>
                 </div>
               
