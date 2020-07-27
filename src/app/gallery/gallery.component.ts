@@ -14,6 +14,8 @@ export class GalleryComponent implements OnInit {
 gallery: Gallery = new Gallery();
   form: FormGroup;
   galleries: Gallery[];
+  galleries2: Gallery[];
+  galleries3: Gallery[];
   constructor(private galleryService: GalleryService, public fb: FormBuilder) {
     this.form = this.fb.group({
       imageTitle: [''],
@@ -25,6 +27,12 @@ gallery: Gallery = new Gallery();
   ngOnInit(): void {
     this.galleryService.getRandGallery().subscribe(
         (data: Gallery[]) => this.galleries = data
+    );
+    this.galleryService.getRandGallery().subscribe(
+        (data: Gallery[]) => this.galleries2 = data
+    );
+    this.galleryService.getRandGallery().subscribe(
+        (data: Gallery[]) => this.galleries3 = data
     );
 
   }

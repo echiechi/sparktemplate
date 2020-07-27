@@ -34,9 +34,8 @@ export class LoginComponent implements OnInit {
             },
             error => {
                 if (error.status === 401) {
-                    console.log(this.error = {
-                        error: error.error.error
-                    })
+                    console.log(error)
+                    this.error = error.error.error;
                     localStorage.removeItem('currentUser')
                     this.loginService.loginNotif.next(false)
 

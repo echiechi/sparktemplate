@@ -49,12 +49,12 @@
                         <div class="card-icon">
                             <img src="http://127.0.0.1:8000/geimg/eventicon.svg" alt="" width="64" height="64">
                         </div>
-                        <p class="card-category">Revenue</p>
-                        <h3 class="card-title">$34,245</h3>
+                        <p class="card-category">Events organised</p>
+                        <h3 class="card-title">{{nbrSpevent[0][1]}}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">date_range</i> Last 24 Hours
+                            <i class="material-icons">date_range</i> This year
                         </div>
                     </div>
                 </div>
@@ -185,101 +185,111 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="messages">
-                                <table class="table">
-                                    <tbody>
-                                    <tr *ngFor="let e of spevents ">
-                                        <td>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" value="" checked>
-                                                    <span class="form-check-sign">
+                                <div *ngIf="userId===0">Please connect</div>
+                                <div *ngIf="userId!==0">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr *ngFor="let e of spevents ">
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               checked>
+                                                        <span class="form-check-sign">
                                                           <span class="check"></span>
                                                       </span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td><a style="font-weight:bold; color: #00acc1">{{e.title}}</a> departure on <a
-                                                style="font-weight:bold">{{e.departureDate}}</a> remaining places: <a
-                                                style="font-weight:bold">{{e.nPlace}}</a>
-                                            from <a style="font-weight:bold">{{e.departureLocation}}</a> to spot <a
-                                                    style="font-weight:bold">{{e.idSpot}}</a>
-                                        </td>
-                                        <td class="td-actions text-right">
-                                            <button mat-raised-button type="button" matTooltip="Edit Task"
-                                                    (click)="sendAddParticipantInputContent(e.id)"
-                                                    class="btn btn-primary btn-link btn-sm btn-just-icon"
-                                                    [disabled]="getUserByEvent(e.id)||e.nPlace===0">
-                                                <i class="material-icons">how_to_reg</i>
-                                            </button>
-                                            <button mat-raised-button type="button" matTooltip="Remove"
-                                                    (click)="sendRemoveParticipantInputContent(e.id)"
-                                                    class="btn btn-danger btn-link btn-sm btn-just-icon"
-                                                    [disabled]="!getUserByEvent(e.id)">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td><a style="font-weight:bold; color: #00acc1">{{e.title}}</a> departure on
+                                                <a
+                                                        style="font-weight:bold">{{e.departureDate}}</a> remaining
+                                                places: <a
+                                                        style="font-weight:bold">{{e.nPlace}}</a>
+                                                from <a style="font-weight:bold">{{e.departureLocation}}</a> to spot <a
+                                                        style="font-weight:bold">{{e.idSpot}}</a>
+                                            </td>
+                                            <td class="td-actions text-right">
+                                                <button mat-raised-button type="button" matTooltip="Edit Task"
+                                                        (click)="sendAddParticipantInputContent(e.id)"
+                                                        class="btn btn-primary btn-link btn-sm btn-just-icon"
+                                                        [disabled]="getUserByEvent(e.id)||e.nPlace===0">
+                                                    <i class="material-icons">how_to_reg</i>
+                                                </button>
+                                                <button mat-raised-button type="button" matTooltip="Remove"
+                                                        (click)="sendRemoveParticipantInputContent(e.id)"
+                                                        class="btn btn-danger btn-link btn-sm btn-just-icon"
+                                                        [disabled]="!getUserByEvent(e.id)">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="tab-pane" id="settings">
-
-                                <form class="needs-validation" novalidate #f="ngForm">
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationTooltip01">Event title</label>
-                                            <input type="text" class="form-control" id="validationTooltip01"
-                                                   placeholder="title"
-                                                   [(ngModel)]="spevent.title" required name="ttle">
-                                            <div class="valid-tooltip">
-                                                Looks good!
+                                <div *ngIf="userId===0">Please connect</div>
+                                <div *ngIf="userId!==0">
+                                    <form class="needs-validation" novalidate #f="ngForm">
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationTooltip01">Event title</label>
+                                                <input type="text" class="form-control" id="validationTooltip01"
+                                                       placeholder="title"
+                                                       [(ngModel)]="spevent.title" required name="ttle">
+                                                <div class="valid-tooltip">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationTooltip02">Spot number</label>
+                                                <input type="number" class="form-control" id="validationTooltip02"
+                                                       placeholder="check the map" required [(ngModel)]="spevent.idSpot"
+                                                       name="isspt">
+                                                <div class="valid-tooltip">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationTooltip03">Divers number</label>
+                                                <input type="number" class="form-control" id="validationTooltip03"
+                                                       min="2"
+                                                       max="5"
+                                                       required [(ngModel)]="spevent.nPlace" name="nplace">
+                                                <div class="valid-tooltip">
+                                                    Looks good!
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationTooltip02">Spot number</label>
-                                            <input type="number" class="form-control" id="validationTooltip02"
-                                                   placeholder="check the map" required [(ngModel)]="spevent.idSpot"
-                                                   name="isspt">
-                                            <div class="valid-tooltip">
-                                                Looks good!
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationTooltip04">Departure location</label>
+                                                <input type="text" class="form-control" id="validationTooltip04"
+                                                       placeholder="City"
+                                                       required [(ngModel)]="spevent.departureLocation" name="location">
+                                                <div class="invalid-tooltip">
+                                                    Please provide a valid city.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationTooltip05">Departure date</label>
+                                                <input type="date" class="form-control" id="validationTooltip05"
+                                                       placeholder=""
+                                                       required [(ngModel)]="spevent.departureDate" name="depdate">
+                                                <div class="invalid-tooltip">
+                                                    Please provide a valid date.
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationTooltip03">Divers number</label>
-                                            <input type="number" class="form-control" id="validationTooltip03" min="2"
-                                                   max="5"
-                                                   required [(ngModel)]="spevent.nPlace" name="nplace">
-                                            <div class="valid-tooltip">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="validationTooltip04">Departure location</label>
-                                            <input type="text" class="form-control" id="validationTooltip04"
-                                                   placeholder="City"
-                                                   required [(ngModel)]="spevent.departureLocation" name="location">
-                                            <div class="invalid-tooltip">
-                                                Please provide a valid city.
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationTooltip05">Departure date</label>
-                                            <input type="date" class="form-control" id="validationTooltip05"
-                                                   placeholder=""
-                                                   required [(ngModel)]="spevent.departureDate" name="depdate">
-                                            <div class="invalid-tooltip">
-                                                Please provide a valid date.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" type="submit" (click)="sendSpeventInputContent()"
-                                    [disabled]="f.invalid">
-                                        Submit
-                                        event
-                                    </button>
-                                </form>
+                                        <button class="btn btn-primary" type="submit"
+                                                (click)="sendSpeventInputContent()"
+                                                [disabled]="f.invalid">
+                                            Submit
+                                            event
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -332,11 +342,23 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane active" id="profile2">
-                                <div class="card-body table-responsive">
+                                <div class="card-body table-responsive" style="max-height: 200px" id="chatDiv">
                                     <div class="overflow-y">
-                                        <ul class="chat">
-                                            <div id="ws-content-receiver"></div>
-                                        </ul>
+                                        <div *ngIf="user===null">Please connect</div>
+                                        <div *ngIf="user!==null">
+                                            <ul *ngFor="let m of msgs">
+                                                <a class="roundedImage">
+                                                    <img *ngIf="user.avatar===''||m.userId!=user.prenom" width="24" height="24"
+                                                         src="http://127.0.0.1:8000/geimg/unknown.png" alt="1"/>
+                                                    <img *ngIf="m.userId==user.prenom&&user.avatar!==''" width="24" height="24"
+                                                         src="http://127.0.0.1:8000/geimg/{{user.avatar}}" alt="1"/>
+                                                </a>
+                                                <a style="font: bold; color: #00acc1"> {{m.userId}} </a><a> {{m.msgTxt}} </a>
+                                            </ul>
+                                            <ul class="chat">
+                                                <div id="ws-content-receiver"></div>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="input-group mb-3">

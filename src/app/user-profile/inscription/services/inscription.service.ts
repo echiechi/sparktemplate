@@ -12,14 +12,14 @@ export class InscriptionService {
     }
     private _getHeaders():Headers {
         let header = new Headers({
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         });
-     
+
         return header;
-     }
-     
-    
-    inscription(f) {
+    }
+
+
+    inscription(f, avatar) {
         // let formData = new FormData();
         console.log(f);
 let jsonform = JSON.stringify(f);

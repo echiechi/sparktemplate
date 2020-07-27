@@ -21,5 +21,8 @@ export class SpeventService {
     getSpeventFromDate() {
         return this.http.get<Spevent[]>('http://127.0.0.1:8000/gespefrdte');
     }
+    getNbrSpevent() {
+        return this.http.get<[1]>('http://127.0.0.1:8000/gespenbr');
+    }
 
 }
