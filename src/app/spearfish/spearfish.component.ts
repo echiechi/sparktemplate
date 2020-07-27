@@ -10,6 +10,9 @@ import {Participantspevent} from '../model/Participantspevent';
 import {ParticipantspeventService} from '../service/participantspevent.service';
 import {Fishspot} from '../model/Fishspot';
 import {FishspotService} from '../service/fishspot.service';
+import {Msg} from '../model/Msg';
+import {User} from '../user-profile/login/model/user';
+import {UserService} from '../service/user.service';
 
 
 declare var ol: any;
@@ -49,30 +52,54 @@ export class SpearfishComponent implements OnInit {
     inputText = '';
     nbrFishSotted: any[];
     nbrSpot: any[];
+    nbrSpevent: any[];
     spevent: Spevent = new Spevent();
     fishSpot: Fishspot = new Fishspot();
     spevents: Spevent[] = null;
+    msgs: Msg[] = null;
     participantspevent: Participantspevent[] = null;
     s = '';
     userId;
+    user: User;
     _subscription: any;
+    _subscriptionMsgWebsocket: any;
+    users: User[];
+    _reciever: any;
 
     constructor(private spotService: SpotService, private webSocket: WsocketService,
                 private speventService: SpeventService, private participantspeventService: ParticipantspeventService,
                 private websocketforspevent: WebsocketforspeventService,
-                private  fishspotService: FishspotService) {
+                private  fishspotService: FishspotService,
+                private userService: UserService
+    ) {
         this.spevents = websocketforspevent.spevents;
         // spevent change est un observable qui suit la mise à jour de la liste des event
         this._subscription = websocketforspevent.speventChange.subscribe((value) => {
             this.spevents = value
+        })
+        this.msgs = webSocket.msgs;
+        // msg change est un observable qui suit la mise à jour de la liste des event
+        this._subscriptionMsgWebsocket = webSocket.msgChange.subscribe((value) => {
+            this.msgs = value;
+            this.scrollDown();
         })
     }
 
     ngOnInit() {
         setTimeout(() => {
             this.spevents = this.websocketforspevent.spevents;
+            this.scrollDown()
         }, 6000);
-        this.userId = prompt('Hi! I need your userId for event :)');
+        setTimeout(() => {
+            this.scrollDown()
+        }, 10000);
+     /*   this.userService.getAllUsers().subscribe(
+            (data2: User[]) => this.users = data2
+        ); */
+        this.users = this.webSocket.users;
+        this.userId = this.webSocket.userId;
+        this.user = this.webSocket.userName2;
+        // prompt('Hi! I need your userId for event :)');
         this.imageFish = new ol.style.Icon({
             anchor: [0.5, 0.5],
             anchorXUnits: 'fraction',
@@ -100,11 +127,8 @@ export class SpearfishComponent implements OnInit {
                 zoom: 6
             }),
         });
-        this.spotService.getAllSpots().subscribe(
-            (data: Spot[]) => {
-                this.spots = data;
-                this.actualiserFishSpot();
-            });
+        this.actualiseSpots();
+
         /*    setTimeout(() => {
                 this.actualiserFishSpot();
             }, 2000); */
@@ -113,11 +137,15 @@ export class SpearfishComponent implements OnInit {
         );
         this.nbrFishSotted = [{'1': '0'}];
         this.nbrSpot = [{'1': '0'}];
+        this.nbrSpevent = [{'1': '0'}];
         this.spotService.getNbrFisfSpotted().subscribe(
             (data: any[]) => this.nbrFishSotted = data
         );
         this.spotService.getNbrSpot().subscribe(
             (data: any[]) => this.nbrSpot = data
+        );
+        this.speventService.getNbrSpevent().subscribe(
+            (data: any[]) => this.nbrSpevent = data
         );
         this.map.on('pointermove', (evt) => {
             if (evt.dragging) {
@@ -129,6 +157,7 @@ export class SpearfishComponent implements OnInit {
         this.participantspeventService.getSpeventByUserId(this.userId).subscribe(
             (data: Participantspevent[]) => this.participantspevent = data
         );
+
         /*   this.speventService.getSpeventFromDate().subscribe(
                (data: Spevent[]) => this.spevents = data
            ); */
@@ -153,10 +182,15 @@ export class SpearfishComponent implements OnInit {
 
     actualiseSpots() {
         this.vectorLayer.getSource().clear();
-        for (const s of this.spots) {
-            this.add_map_point(s.latitude, s.longitude, s.id, this.imageDot);
-        }
-        this.map.addLayer(this.vectorLayer);
+        this.spotService.getAllSpots().subscribe(
+            (data: Spot[]) => {
+                this.spots = data;
+                // this.actualiserFishSpot();
+                for (const s of this.spots) {
+                    this.add_map_point(s.latitude, s.longitude, s.id, this.imageDot);
+                }
+                this.map.addLayer(this.vectorLayer);
+            });
     }
 
     displayFeatureInfo = (pixel) => {
@@ -168,7 +202,7 @@ export class SpearfishComponent implements OnInit {
 
         const info = document.getElementById('info');
         if (feature) {
-            info.innerHTML =  'Spot id: ' + feature.get('label');
+            info.innerHTML = 'Spot id: ' + feature.get('label');
         } else {
             info.innerHTML = '&nbsp;';
         }
@@ -183,6 +217,7 @@ export class SpearfishComponent implements OnInit {
                 this.actualiserFishSpot();
             });
     }
+
     removeFeature() {
         this.vectorLayer.getSource().clear();
     }
@@ -207,6 +242,8 @@ export class SpearfishComponent implements OnInit {
             message: this.inputText,
             channel: 'general'
         }));
+        this._reciever = document.getElementById('ws-content-to-send');
+        this._reciever.innerHTML = '';
     }
 
     sendSpeventInputContent() {
@@ -222,6 +259,7 @@ export class SpearfishComponent implements OnInit {
         this.speventService.getSpeventFromDate().subscribe(
             (data: Spevent[]) => this.spevents = data
         );
+        
     }
 
     sendAddParticipantInputContent(idEvent) {
@@ -281,5 +319,15 @@ export class SpearfishComponent implements OnInit {
         this.fishSpot.userId = this.userId;
         console.log(this.fishSpot)
         this.fishspotService.addFishspot(this.fishSpot).subscribe()
+    }
+
+    scrollDown() {
+        const objDiv = document.getElementById('chatDiv');
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
+    getAvatarForMsg(id) {
+ /*this.userService.getUserById(id).subscribe(
+            (data: User) => {return data.avatar});*/
+            return this.users.find(i => i.prenom = id).avatar;
     }
 }

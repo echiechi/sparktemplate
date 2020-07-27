@@ -21,14 +21,13 @@ export class EditPostComponent implements OnInit {
 
   post = new Post();
   userId: number;
-  image; title; city; description;
+  image;title;city;description;
   editForm: FormGroup;
-  constructor(private PostService: PostService, private formBuilder: FormBuilder, private apiservice: ApiService, private route: ActivatedRoute) { }
-
+  constructor(private PostService:PostService,private formBuilder: FormBuilder,private apiservice: ApiService,private route: ActivatedRoute) { }
+  
 
 
   ngOnInit(): void {
-
     // //edit form
     // this.editForm = this.formBuilder.group({
     //   id: [''],
@@ -42,7 +41,7 @@ export class EditPostComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(params);
       this.apiservice.getPostDetails(params.id).subscribe((data : any) => {
-        this.post = data; 
+        this.post = data;
            console.log(data);
           // this.post = data;
         //  this.editForm.title(data[0]);
@@ -53,7 +52,7 @@ export class EditPostComponent implements OnInit {
   }
 
 
-  async  editPost(f){ 
+  async  editPost(f){
       let user = this.apiservice.getCurrentUser();
       let userId = 1;
       if(user!=null)
@@ -66,7 +65,7 @@ export class EditPostComponent implements OnInit {
       formData.append('description',f.description);
       formData.append('city',f.city);
       formData.append('id',f.id);
-      
+
       let response =await fetch('http://127.0.0.1:8001/post/update/'+f.id,{
         method: 'POST',
         body: formData
