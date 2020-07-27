@@ -56,7 +56,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="connected">
                     <a class="nav-link" routerLink="/artisanat/cart">
                         <i class="material-icons">shopping_cart</i>
                         <p>
@@ -64,7 +64,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="connected && !shop">
                     <a class="nav-link" routerLink="/artisanat/newShop">
                         <i class="material-icons">add_business</i>
                         <p>

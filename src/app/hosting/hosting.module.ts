@@ -18,10 +18,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 
 @NgModule({
-  declarations: [RecherchepostComponent, PostsComponent, AddPostComponent, ProfileComponent,PostCardComponent, MyPostsComponent, EditPostComponent],
+  declarations: [RecherchepostComponent, PostsComponent, AddPostComponent, ProfileComponent,PostCardComponent, MyPostsComponent, EditPostComponent, MyBookingsComponent, ReservationsComponent],
   imports: [
     CommonModule,
     HostingRoutingModule,
@@ -36,6 +38,7 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     MatNativeDateModule,
     HttpClientModule,
     FormsModule
+    
   ]
 })
 export class HostingModule { }

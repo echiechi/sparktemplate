@@ -1,9 +1,10 @@
-import {Component, OnInit, ElementRef, Output} from '@angular/core';
+import {Component, OnInit, ElementRef, Output, Input} from '@angular/core';
 import {ROUTES} from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {Router} from '@angular/router';
 import {LoginService} from '../../user-profile/login/services/login.service';
 import {User} from '../../user-profile/login/model/user';
+import { ShopService } from 'app/artisanat/services/shop.service';
 
 @Component({
     selector: 'app-navbar',
@@ -17,14 +18,19 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     @Output() connected: boolean;
+    shop:number = null;
     userConnected: User;
 
-    constructor(location: Location, private element: ElementRef, private router: Router, private loginService: LoginService) {
+    constructor(location: Location, private element: ElementRef, private router: Router
+        , private loginService: LoginService, private shopService : ShopService) {
         this.location = location;
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        this.shopService.getShopByuserId().subscribe((res :any)=>{
+            this.shop = (res.length > 0) ? res[0].shop.id : null
+        });
         this.loginService.loginNotif.subscribe(x => {
             if (localStorage.getItem('currentUser') != null) {
                 this.connected = true;

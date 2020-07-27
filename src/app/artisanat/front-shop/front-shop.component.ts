@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ShopService } from '../services/shop.service';
 
 @Component({
   selector: 'app-front-shop',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontShopComponent implements OnInit {
 
-  constructor() { }
+  myShop
+  constructor(private shop:ShopService ,private router : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.router.params.subscribe(res=>{
+      this.shop.getShop(res['id']).subscribe(res=>this.myShop = res);
+      ;
+    })
   }
 
 }

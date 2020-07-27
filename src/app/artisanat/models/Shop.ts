@@ -1,7 +1,7 @@
 import { Ownership } from "./Ownership";
 
 export class Shop{
-    public id : number;
+    public id : number = null;
     public name: string;
     public imageName: string;
     public country: string;

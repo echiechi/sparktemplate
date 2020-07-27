@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ShopService } from './artisanat/services/shop.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   constructor(private http: HttpClient) {
-   /* this.http.get('http://127.0.0.1:8001/product').subscribe(res => console.log(res));
-    this.http.post('http://127.0.0.1:8001/product/new', {
+   /* this.http.get('http://127.0.0.1:8000/product').subscribe(res => console.log(res));
+    this.http.post('http://127.0.0.1:8000/product/new', {
       "name": "test2",
       "description": "test3"
     }, {
